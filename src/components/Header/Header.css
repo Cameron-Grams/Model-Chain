@@ -1,0 +1,28 @@
+.css-mainHeader{
+    background-color: #222;
+    color: white;
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.css-headerDivision{
+    flex: 1 1 auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.css-middle{
+    flex: 3 1 auto;
+}
+
+.css-activeLink{
+    font-size: 1.5em;
+    color: #5b5a68;
+}
+
+.css-activeLink:hover{
+    color: white;
+}
