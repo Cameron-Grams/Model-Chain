@@ -1,0 +1,1 @@
+export const setCurrentBlock = 'SET_CURRENT_BLOCK';

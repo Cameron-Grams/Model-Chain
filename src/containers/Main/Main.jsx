@@ -4,11 +4,13 @@ import './Main.css';
 
 const Main = ( props ) => {
     return(
-        <div className="App">
+        <div className="css-main">
           <Header /> 
 
           <div className="css-MainIntroText">
-              <p>Describe what we are doing...</p>
+            <div className="css-textBox">
+              <p className="css-bodyIntroText" >Describe what we are doing...</p>
+            </div>
           </div>
         </div>
     )

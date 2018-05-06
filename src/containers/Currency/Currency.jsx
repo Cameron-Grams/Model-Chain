@@ -1,16 +1,16 @@
 import React from 'react'; 
 import Aux from '../../helpers/Aux';
 import Header from '../../components/Header/Header'; 
-import './DemoBlock.css';
+import './Currency.css';
 
-const DemoBlock = ( props ) => {
+const Currency = ( props ) => {
     return(
         <Aux>
             <Header />
-            <div className="css-demoBlock">This will be a block</div>
+            <div className="css-currency" >This will be the Mining for Currency</div>
         </Aux>
     )
 }
 
 
-export default DemoBlock;
+export default Currency;
