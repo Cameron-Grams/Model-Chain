@@ -23,6 +23,10 @@ const Block = ( props ) => {
             <IntroText text={ "Provide a description of the actions of a single block" } />
             <Carriage > 
                 < BlockForm formClassNam={ "css-blockForm" } onSubmit={ ( values ) => receiveBlock( values ) } /> 
+                <div className={ "css-blockSignatureDiv" } >
+                    <p>Nonce:    </p>
+                    <p>Block Signature: </p>
+                </div>
             </Carriage >
         </Aux>
     )

@@ -2,7 +2,13 @@ import * as actionTypes from '../actions/actionTypes';
 
 
 const initialState = {
-    block: {},
+    currentBlock: {
+        currentTitle: '',
+        currentData: '',
+        currentHash: '',
+        currentNonce: 0,
+        currentSignature: ''
+    },
     chain: []
 };
 

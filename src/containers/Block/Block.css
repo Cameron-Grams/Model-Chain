@@ -1,14 +1,23 @@
 .css-blockForm{
-    color: red;
+    width: 100%;
+    color: black;
 }
 
 .css-blockForm > label{
     margin: 10px;
 }
-.css-blockInput{
+.css-blockInputDiv{
+
     margin: 10px;
 }
 
+.css-blockInput{
+    width: 80%;
+}
+
 .css-blockNumber{
-    margin: 0px;
+    background-color: slategray;
+    color: black;
+    padding: 10px;
+    margin: 10px 0;
 }
