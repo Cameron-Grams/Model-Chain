@@ -25,6 +25,7 @@ class BlockForm extends Component {
         </div>
 
         <button type="submit">Mine</button>
+
       </form>
     );
   }
