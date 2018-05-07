@@ -22,7 +22,7 @@ const Block = ( props ) => {
             <Header currentPage={ "blockPage" } />
             <IntroText text={ "Provide a description of the actions of a single block" } />
             <Carriage > 
-                < BlockForm onSubmit={ ( values ) => receiveBlock( values ) } /> 
+                < BlockForm formClassNam={ "css-blockForm" } onSubmit={ ( values ) => receiveBlock( values ) } /> 
             </Carriage >
         </Aux>
     )

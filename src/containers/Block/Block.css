@@ -1,9 +1,14 @@
-.css-demoBlock{
-    width: 100%;
-    text-align: center;
+.css-blockForm{
     color: red;
 }
 
+.css-blockForm > label{
+    margin: 10px;
+}
 .css-blockInput{
     margin: 10px;
+}
+
+.css-blockNumber{
+    margin: 0px;
 }

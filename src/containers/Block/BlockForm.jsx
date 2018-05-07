@@ -5,8 +5,8 @@ class BlockForm extends Component {
   render() {
     const { handleSubmit } = this.props;
     return (
-      <form onSubmit={handleSubmit}>
-        <div>
+      <form className={ this.props.formClassNam } onSubmit={handleSubmit}>
+        <div className={ "css-blockNumber" } >
           <label>Block Number: Example </label>
         </div>
 
@@ -20,7 +20,7 @@ class BlockForm extends Component {
         <div>
           <label>Data</label>
           <div className={ "css-blockInput" } >
-              <Field name="blockData" component="input" type="textarea"/>
+              <Field name="blockData" component={ "textarea" } type="text"/>
           </div>
         </div>
 
