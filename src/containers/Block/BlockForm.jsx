@@ -30,3 +30,7 @@ BlockForm = reduxForm({
 })( BlockForm );
 
 export default BlockForm;
+
+
+
+//  called with from parent           < BlockForm onSubmit={ ( values ) => receiveBlock( values ) } /> 
