@@ -8,7 +8,7 @@ const Header = ( props ) => {
             <div className="css-headerDivision css-activeLink" ><a href="/single-block">Block</a></div>
             <div className="css-headerDivision css-activeLink" ><a href="/ledger">Ledger</a></div>
             <div className="css-headerDivision css-activeLink" ><a href="/currency">Coins</a></div>
-            <div className="css-headerDivision css-activeLink" ><a href="/currency">Information</a></div>
+            <div className="css-headerDivision css-activeLink" ><a href="/information">Information</a></div>
         </div>
     )
 

@@ -8,7 +8,7 @@ const MoreInformation = ( props ) => {
     return(
         <Aux>
             <Header />
-            <IntroText  textClass={ "css-information" } text={ "This will be the Mining for Currency" } />
+            <IntroText  textClass={ "css-information" } text={ "Page for additional information." } />
         </Aux>
     )
 }

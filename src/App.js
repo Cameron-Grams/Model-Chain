@@ -7,6 +7,7 @@ import Main from './containers/Main/Main';
 import Block from './containers/Block/Block'; 
 import Ledger from './containers/Ledger/Ledger'; 
 import Currency from './containers/Currency/Currency'; 
+import MoreInformation from './components/MoreInformation/MoreInformation';
 
 class App extends Component {
   render() {
@@ -18,6 +19,7 @@ class App extends Component {
             <Route exact path={ "/single-block" } component={ Block } />
             <Route exact path={ "/ledger" } component={ Ledger } />           
             <Route exact path={ "/currency" } component={ Currency } />           
+            <Route exact path={ "/information" } component={ MoreInformation } />           
         </Switch>
       </Router>
       </Provider >
