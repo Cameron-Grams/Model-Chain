@@ -7,7 +7,7 @@ import './Ledger.css';
 const Ledger = ( props ) => {
     return(
         <Aux>
-            <Header />
+            <Header currentPage={ "ledgerPage" }/>
             < IntroText textClass={ "css-ledger" } text={ "This will be the Ledger" } />
         </Aux>
     )

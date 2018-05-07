@@ -7,18 +7,24 @@ class BlockForm extends Component {
     return (
       <form onSubmit={handleSubmit}>
         <div>
-          <label>First Name</label>
-          <Field name="firstName" component="input" type="text"/>
+          <label>Block Number: Example </label>
         </div>
+
         <div>
-          <label>Last Name</label>
-          <Field name="lastName" component="input" type="text"/>
+          <label>Block Title</label>
+          <div className={ "css-blockInput" } >
+              <Field name="blockTitle" component="input" type="text"/>
+          </div>
         </div>
+
         <div>
-          <label>Email</label>
-          <Field name="email" component="input" type="email"/>
+          <label>Data</label>
+          <div className={ "css-blockInput" } >
+              <Field name="blockData" component="input" type="textarea"/>
+          </div>
         </div>
-        <button type="submit">Submit</button>
+
+        <button type="submit">Mine</button>
       </form>
     );
   }
@@ -32,5 +38,3 @@ BlockForm = reduxForm({
 export default BlockForm;
 
 
-
-//  called with from parent           < BlockForm onSubmit={ ( values ) => receiveBlock( values ) } /> 

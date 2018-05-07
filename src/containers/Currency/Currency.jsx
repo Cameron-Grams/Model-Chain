@@ -7,7 +7,7 @@ import './Currency.css';
 const Currency = ( props ) => {
     return(
         <Aux>
-            <Header />
+            <Header currentPage={ "coinPage" }/>
             <IntroText  textClass={ "css-currency" } text={ "This will be the Mining for Currency" } />
         </Aux>
     )

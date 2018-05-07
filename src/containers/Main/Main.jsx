@@ -6,7 +6,7 @@ import './Main.css';
 const Main = ( props ) => {
     return(
       <div className="css-main">
-        <Header /> 
+        <Header currentPage={ "mainPage" }/> 
         <IntroText textClass="css-bodyIntroText" text={ "Describe the purpose of the app" } /> 
       </div>
     )

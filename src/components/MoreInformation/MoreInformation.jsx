@@ -7,7 +7,7 @@ import './MoreInformation.css';
 const MoreInformation = ( props ) => {
     return(
         <Aux>
-            <Header />
+            <Header currentPage={ "informationPage" }/>
             <IntroText  textClass={ "css-information" } text={ "Page for additional information." } />
         </Aux>
     )
