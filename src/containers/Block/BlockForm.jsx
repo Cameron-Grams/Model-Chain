@@ -9,7 +9,7 @@ class BlockForm extends Component {
 
     let blockColorCode;
 
-    if( this.props.currentHash !== '' ){
+    if( this.props.currentHash ){
       
 //      console.log( '[ blk fm ] current hash is ', this.props.currentHash ); 
 //      console.log( '[ blk fm ] block hash is ', blockHash ); 
@@ -63,6 +63,7 @@ BlockForm = connect(
     const blockDataValue = selector(state, 'blockData')
     const hashTargetValue = `${ blockTitleValue || ''}${ blockDataValue || ''}`;
     return {
+      currentHash,
       blockHash: encryptBlock.returnValue( hashTargetValue ) 
     }
   }

@@ -5,7 +5,7 @@ const initialState = {
     currentBlock: {
         currentTitle: '',
         currentData: '',
-        currentHash: '',
+        currentHash: null,
         currentNonce: 0,
         currentSignature: ''
     },
