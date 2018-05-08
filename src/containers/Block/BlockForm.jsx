@@ -5,9 +5,24 @@ import { encryptBlock } from '../../helpers/encryptBlock';
 
 class BlockForm extends Component {
   render() {
-    const { handleSubmit, blockHash, currentHash } = this.props;
+    const { handleSubmit, blockHash } = this.props;
 
-    const blockColorCode = currentHash !== '' ? blockHash === currentHash ? "css-goodBlock" : "css-badBlock" : '';
+    let blockColorCode;
+
+    if( this.props.currentHash !== '' ){
+      
+//      console.log( '[ blk fm ] current hash is ', this.props.currentHash ); 
+//      console.log( '[ blk fm ] block hash is ', blockHash ); 
+
+        if( this.props.currentHash === blockHash ){
+          blockColorCode = "css-goodBlock";
+        } else if ( this.props.currentHash !== blockHash ){
+          blockColorCode = "css-badBlock";
+        }
+    } else {
+//      console.log( '[ block form ] currentHash still empty' ); 
+      blockColorCode = ''; 
+    }
 
     return (
       <form className={ this.props.formClassName } onSubmit={ handleSubmit }>
@@ -28,9 +43,9 @@ class BlockForm extends Component {
               <Field className={ "css-blockInput" } name="blockData" component={ "textarea" } type="text"/>
           </div>
         </div>
-
-        <button type="submit">Mine</button>
         <p>Block Hash: { blockHash }</p>
+        <button type="submit">Mine</button>
+
       </form>
     );
   }
@@ -43,6 +58,7 @@ BlockForm = reduxForm({
 const selector = formValueSelector('singleBlockForm')
 BlockForm = connect(
   state => {
+    const currentHash = state.block.currentBlock.currentHash; 
     const blockTitleValue = selector(state, 'blockTitle')
     const blockDataValue = selector(state, 'blockData')
     const hashTargetValue = `${ blockTitleValue || ''}${ blockDataValue || ''}`;
