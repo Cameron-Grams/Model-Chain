@@ -5,10 +5,13 @@ import { encryptBlock } from '../../helpers/encryptBlock';
 
 class BlockForm extends Component {
   render() {
-    const { handleSubmit, blockHash } = this.props;
+    const { handleSubmit, blockHash, currentHash } = this.props;
+
+    const blockColorCode = currentHash !== '' ? blockHash === currentHash ? "css-goodBlock" : "css-badBlock" : '';
+
     return (
-      <form className={ this.props.formClassNam } onSubmit={handleSubmit}>
-        <div className={ "css-blockNumber" } >
+      <form className={ this.props.formClassName } onSubmit={ handleSubmit }>
+        <div className={ `css-blockNumber ${ blockColorCode }` } >
           <label>Block Number: Example </label>
         </div>
 
@@ -42,7 +45,7 @@ BlockForm = connect(
   state => {
     const blockTitleValue = selector(state, 'blockTitle')
     const blockDataValue = selector(state, 'blockData')
-    const hashTargetValue = `${ blockTitleValue || ''} ${ blockDataValue || ''}`;
+    const hashTargetValue = `${ blockTitleValue || ''}${ blockDataValue || ''}`;
     return {
       blockHash: encryptBlock.returnValue( hashTargetValue ) 
     }

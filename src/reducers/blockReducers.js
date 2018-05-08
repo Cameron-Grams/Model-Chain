@@ -19,7 +19,13 @@ const blockReducer = ( state = initialState, action ) => {
             console.log( '[blockReducer ] with data: ', action.data );
             return {
                 ...state,
-                block: action.data
+                currentBlock: {
+                    currentTitle: action.data.blockTitle,
+                    currentData: action.data.blockData,
+                    currentHash: action.data.blockHash,
+                    currentNonce: action.data.nonce,
+                    currentSignature: action.data.signature
+                }
             };
         };
 

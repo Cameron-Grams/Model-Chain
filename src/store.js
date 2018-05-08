@@ -4,7 +4,7 @@ import blockReducer from './reducers/blockReducers';
 
 const reducers = {
     form: formReducer,
-    blockReducer: blockReducer
+    block: blockReducer
 };
 
 const reducer = combineReducers( reducers ); 
