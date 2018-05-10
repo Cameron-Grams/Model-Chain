@@ -10,17 +10,12 @@ class BlockForm extends Component {
     let blockColorCode;
 
     if( this.props.currentHash ){
-      
-//      console.log( '[ blk fm ] current hash is ', this.props.currentHash ); 
-//      console.log( '[ blk fm ] block hash is ', blockHash ); 
-
         if( this.props.currentHash === blockHash ){
           blockColorCode = "css-goodBlock";
         } else if ( this.props.currentHash !== blockHash ){
           blockColorCode = "css-badBlock";
         }
     } else {
-//      console.log( '[ block form ] currentHash still empty' ); 
       blockColorCode = ''; 
     }
 

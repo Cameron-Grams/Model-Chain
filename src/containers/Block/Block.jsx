@@ -1,12 +1,8 @@
 import React from 'react'; 
 import { connect } from 'react-redux'; 
-import Aux from '../../helpers/Aux';
 import Carriage from '../../components/Carriage/Carriage'; 
-import Header from '../../components/Header/Header'; 
 import BlockForm from './BlockForm'; 
-//import SingleBlock from '../../components/SingleBlock/SingleBlock'; 
-import IntroText from '../../components/IntroText/IntroText'; 
-import { setCurrentAction } from '../../actions/blockActions'; 
+import { setCurrentAction, addNewBlockToChain } from '../../actions/blockActions'; 
 import { encryptBlock } from '../../helpers/encryptBlock'; 
 import './Block.css';
 
@@ -23,14 +19,15 @@ const Block = ( props ) => {
             blockData: blockData,
             blockHash: encryptBlock.returnValue( `${ blockTitle }${ blockData }` )
         }     
+
         props.setCurrentAction( finalBlock ); 
+
+        if ( props.addToChain ){
+            props.addNewBlockToChain( finalBlock );
+        }
     };
 
-
     return(
-        <Aux>
-            <Header currentPage={ "blockPage" } />
-            <IntroText text={ "Provide a description of the actions of a single block" } />
             <Carriage > 
                 < BlockForm formClassName={ "css-blockForm" } onSubmit={ ( values ) => receiveBlock( values ) } /> 
                 <div className={ "css-blockSignatureDiv" } >
@@ -38,7 +35,6 @@ const Block = ( props ) => {
                     <p>Block Signature: { props.block.currentBlock.currentSignature }</p>
                 </div>
             </Carriage >
-        </Aux>
     )
 }
 
@@ -46,5 +42,5 @@ const mapStateToProps = ( state ) => ( {
     block: state.block
 } );
 
-export default connect( mapStateToProps, { setCurrentAction } )( Block ); 
+export default connect( mapStateToProps, { setCurrentAction, addNewBlockToChain } )( Block ); 
 

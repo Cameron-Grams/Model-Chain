@@ -13,21 +13,39 @@ const initialState = {
 };
 
 const blockReducer = ( state = initialState, action ) => {
+//    let currentTitle, currentData, currentHash, currentNonce, currentSignature; 
+
+
+    const newBlock = ( action ) => {
+        return {  
+        currentTitle: action.data.blockTitle,
+        currentData: action.data.blockData,
+        currentHash: action.data.blockHash,
+        currentNonce: action.data.nonce,
+        currentSignature: action.data.signature
+        };
+    };
+
 
     switch( action.type ){
         case actionTypes.setCurrentBlock:{
-            console.log( '[blockReducer ] with data: ', action.data );
             return {
                 ...state,
-                currentBlock: {
-                    currentTitle: action.data.blockTitle,
-                    currentData: action.data.blockData,
-                    currentHash: action.data.blockHash,
-                    currentNonce: action.data.nonce,
-                    currentSignature: action.data.signature
-                }
+                currentBlock: newBlock( action )
             };
-        };
+        }
+
+        case actionTypes.addNewBlockToChain:{
+            
+            let updatedChain = state.chain;
+            let targetData = newBlock( action );
+            updatedChain.push( targetData );
+
+            return {
+                ...state,
+               chain: updatedChain
+            };
+        }
 
         default:{
             return state;

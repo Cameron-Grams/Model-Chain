@@ -4,3 +4,10 @@ export function setCurrentAction ( newBlock ){
         data: newBlock
     } );
 };
+
+export function addNewBlockToChain ( newBlock ){
+    return( {
+        type: 'ADD_NEW_BLOCK_TO_CHAIN', 
+        data: newBlock
+    } );
+};
