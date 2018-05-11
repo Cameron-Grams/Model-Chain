@@ -9,7 +9,6 @@ import './Block.css';
 const Block = ( props ) => {
 
     const receiveBlock = ( values ) => {
-        console.log( 'from the form receiving: ', values ); 
         const { blockTitle, blockData } = values; 
         const { nonce, signature } = encryptBlock.signature( blockTitle, blockData ); 
         const finalBlock = {
