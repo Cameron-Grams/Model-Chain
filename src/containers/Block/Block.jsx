@@ -30,8 +30,8 @@ const Block = ( props ) => {
             <Carriage > 
                 < BlockForm formClassName={ "css-blockForm" } onSubmit={ ( values ) => receiveBlock( values ) } /> 
                 <div className={ "css-blockSignatureDiv" } >
-                    <p>Nonce: { props.block.currentBlock.currentNonce }   </p>
-                    <p>Block Signature: { props.block.currentBlock.currentSignature }</p>
+                    <p>Nonce: { props.block.currentBlock.blockNonce }   </p>
+                    <p>Block Signature: { props.block.currentBlock.blockSignature }</p>
                 </div>
             </Carriage >
     )

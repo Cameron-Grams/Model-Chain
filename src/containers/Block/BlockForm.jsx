@@ -16,7 +16,7 @@ class BlockForm extends Component {
           blockColorCode = "css-badBlock";
         }
     } else {
-      blockColorCode = ''; 
+     blockColorCode = ''; 
     }
 
     return (
@@ -53,7 +53,7 @@ BlockForm = reduxForm({
 const selector = formValueSelector('singleBlockForm')
 BlockForm = connect(
   state => {
-    const currentHash = state.block.currentBlock.currentHash; 
+    const currentHash = state.block.currentBlock.blockHash; 
     const blockTitleValue = selector(state, 'blockTitle')
     const blockDataValue = selector(state, 'blockData')
     const hashTargetValue = `${ blockTitleValue || ''}${ blockDataValue || ''}`;

@@ -4,7 +4,7 @@ import Header from '../../components/Header/Header';
 import IntroText from '../../components/IntroText/IntroText'; 
 import Block from './Block'; 
 
-const DisplayBlock = ( props ) => {
+const SingleBlockDisplay = ( props ) => {
     return(
     < React.Fragment >
         <Header currentPage={ "blockPage" } />
@@ -18,4 +18,4 @@ const mapStateToProps = ( state ) => ( {
     block: state.block
 })
 
-export default connect( mapStateToProps, {} )( DisplayBlock ); 
+export default connect( mapStateToProps, {} )( SingleBlockDisplay ); 

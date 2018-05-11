@@ -3,11 +3,11 @@ import * as actionTypes from '../actions/actionTypes';
 
 const initialState = {
     currentBlock: {
-        currentTitle: '',
-        currentData: '',
-        currentHash: null,
-        currentNonce: 0,
-        currentSignature: ''
+        blockTitle: '',
+        blockData: '',
+        blockHash: null,
+        blockNonce: 0,
+        blockSignature: ''
     },
     chain: []
 };
@@ -18,11 +18,11 @@ const blockReducer = ( state = initialState, action ) => {
 
     const newBlock = ( action ) => {
         return {  
-        currentTitle: action.data.blockTitle,
-        currentData: action.data.blockData,
-        currentHash: action.data.blockHash,
-        currentNonce: action.data.nonce,
-        currentSignature: action.data.signature
+        blockTitle: action.data.blockTitle,
+        blockData: action.data.blockData,
+        blockHash: action.data.blockHash,
+        blockNonce: action.data.nonce,
+        blockSignature: action.data.signature
         };
     };
 

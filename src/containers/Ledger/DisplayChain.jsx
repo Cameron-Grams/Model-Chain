@@ -1,7 +1,7 @@
 import React from 'react'; 
 import { connect } from 'react-redux'; 
 import Block from '../Block/Block'; 
-
+import LedgerBlock from './LedgerBlock'; 
 
 const DisplayChain = ( props ) => {
     return(
@@ -9,7 +9,7 @@ const DisplayChain = ( props ) => {
 
     { props.block.chain.map( ( block, id ) => ( 
 
-        <Block />
+        <LedgerBlock key={ id.toString() } blockIdentifier={ id.toString() } />
 
         ) 
     ) }
