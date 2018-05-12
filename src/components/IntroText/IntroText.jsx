@@ -4,7 +4,7 @@ import './IntroText.css';
 const IntroText = ( props ) => (
     <div className="css-IntroText">
         <div className="css-textBox">
-            <p className={ props.textClass } >{ props.text }</p>
+            { props.text }
         </div>
     </div>
 );

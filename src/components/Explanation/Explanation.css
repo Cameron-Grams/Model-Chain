@@ -1,0 +1,15 @@
+.css-explanationDiv{
+    margin: 20px auto;
+    width: 100%;
+    text-align: center;
+}
+
+
+.css-explanationFormat{
+    margin: auto;
+    color: blue;
+}
+
+.css-explanationFormat:hover{
+    color: slategray;
+}

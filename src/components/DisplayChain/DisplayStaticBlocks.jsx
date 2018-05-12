@@ -1,15 +1,15 @@
 import React from 'react'; 
 import { connect } from 'react-redux'; 
-import Block from '../Block/Block'; 
-import LedgerBlock from './LedgerBlock'; 
+import LedgerBlock from '../../containers/Ledger/LedgerBlock'; 
 
 const DisplayChain = ( props ) => {
+
     return(
     <div>
 
     { props.block.chain.map( ( block, id ) => ( 
 
-        <LedgerBlock key={ id.toString() } blockIdentifier={ id.toString() } />
+         <LedgerBlock key={ id.toString() } blockIdentifier={ id.toString() } />
 
         ) 
     ) }
