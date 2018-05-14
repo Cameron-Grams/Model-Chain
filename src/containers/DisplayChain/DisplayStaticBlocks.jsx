@@ -1,6 +1,6 @@
 import React from 'react'; 
 import { connect } from 'react-redux'; 
-import LedgerBlock from '../../containers/Ledger/LedgerBlock'; 
+import LedgerBlock from './LedgerBlock'; 
 
 const DisplayChain = ( props ) => {
 

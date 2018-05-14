@@ -4,7 +4,7 @@ import Header from '../../components/Header/Header';
 import Explanation from '../../components/Explanation/Explanation'; 
 import IntroText from '../../components/IntroText/IntroText';
 import Block from '../Block/Block'; 
-import DisplayStaticBlocks from '../../components/DisplayChain/DisplayStaticBlocks';
+import DisplayStaticBlocks from '../DisplayChain/DisplayStaticBlocks';
 import './Currency.css';
 
 const Currency = ( props ) => {

@@ -4,7 +4,7 @@ import Header from '../../components/Header/Header';
 import Explanation from '../../components/Explanation/Explanation'; 
 import IntroText from '../../components/IntroText/IntroText'; 
 import Block from '../Block/Block';
-import DisplayBlocks from '../../components/DisplayChain/DisplayBlocks'; 
+import DisplayBlocks from '../DisplayChain/DisplayBlocks'; 
 import './Ledger.css';
 
 const Ledger = ( props ) => {
@@ -17,10 +17,6 @@ const Ledger = ( props ) => {
     )
 
     const ledgerExplanation = <IntroText  textClass={ "css-currency" } text={ ledgerText } />
-
-
-
-
 
     return(
         <Aux>
