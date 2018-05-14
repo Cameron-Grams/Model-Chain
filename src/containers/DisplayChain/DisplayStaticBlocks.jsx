@@ -6,14 +6,10 @@ const DisplayChain = ( props ) => {
 
     return(
     <div>
-
-    { props.block.chain.map( ( block, id ) => ( 
-
-         <LedgerBlock key={ id.toString() } blockIdentifier={ id.toString() } />
-
-        ) 
-    ) }
-
+        { props.block.chain.map( ( block, id ) => ( 
+            <LedgerBlock key={ id.toString() } block={ block } blockIdentifier={ id.toString() } />
+            ) 
+        ) }
     </div> 
     )
 };

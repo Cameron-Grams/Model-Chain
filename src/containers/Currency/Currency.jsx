@@ -3,8 +3,9 @@ import Aux from '../../helpers/Aux';
 import Header from '../../components/Header/Header'; 
 import Explanation from '../../components/Explanation/Explanation'; 
 import IntroText from '../../components/IntroText/IntroText';
-import Block from '../Block/Block'; 
-import DisplayStaticBlocks from '../DisplayChain/DisplayStaticBlocks';
+import ShowMiners from './Miners/MinerComponent'; 
+import MinedBlock from './MinedBlock'; 
+import DisplayBlocks from '../DisplayChain/DisplayBlocks';
 import './Currency.css';
 
 const Currency = ( props ) => {
@@ -22,8 +23,9 @@ const Currency = ( props ) => {
         <Aux>
             <Header currentPage={ "coinPage" }/>
             <Explanation explanationText={ currencyExplanation } whichExplanation={ "CryptoCurrency" }/>
-            <Block addToChain={ true }/>
-            <DisplayStaticBlocks />
+            <ShowMiners />
+            <MinedBlock addToChain={ true }/>
+            <DisplayBlocks />
         </Aux>
     )
 }
