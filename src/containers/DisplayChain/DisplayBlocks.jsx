@@ -4,12 +4,10 @@ import LedgerBlock from './LedgerBlock';
 
 const DisplayChain = ( props ) => {
 
-    const testLength = props.block.chain.length >= 1;
-
     return(
     <div>
         { props.block.chain.map( ( block, id ) => ( 
-            <LedgerBlock fromChain={ testLength } key={ id.toString() } blockIdentifier={ id.toString() } />
+            <LedgerBlock key={ id.toString() } block={ block } blockIdentifier={ id.toString() } />
             ) 
         ) }
     </div> 

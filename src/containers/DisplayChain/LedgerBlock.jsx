@@ -7,29 +7,35 @@ const LedgerBlock = ( props ) => {
 
     return(
         <Carriage >
-            <h2>Block Title: { props.block.currentBlock.blockTitle }</h2>
-            <h4>Block Data: { props.block.currentBlock.blockData }</h4>
-            <p>Block Hash: { props.block.currentBlock.blockHash }</p>
-            <p>Block Signature: { props.block.currentBlock.blockSignature }</p>
+            <h2>Block Title: { props.block.blockTitle }</h2>
+            <h4>Block Data: { props.block.blockData }</h4>
+            <p>Block Hash: { props.block.blockHash }</p>
+            <p>Block Signature: { props.block.blockSignature }</p>
             <p>Key: { props.blockIdentifier }</p>
         </Carriage>
     )
 }
-
+/*
 export default connect( 
     ( state, props ) => {
+        console.log( 'ledger block: state: ', state );
+        console.log( 'ledger block state chain: ', state.block.chain );
+
         const block = state.currentBlock;
-        const index = props.key;
+        const index = props.blockIdentifier;
+        console.log( 'ledger block: index: ', index );
         const initialValues = {};
+    
         if ( props.fromChain ){
-            initialValues.blockTitle = state.chain[ index ].blockTitle;
-            initialValues.blockData = state.chain[ index ].blockData;
-            initialValues.blockHash = state.chain[ index ].blockHash;
-            initialValues.blockSignature = state.chain[ index ].blockSignature;
+            initialValues.blockTitle = state.block.chain[ index ].blockTitle;
+            initialValues.blockData = state.block.chain[ index ].blockData;
+            initialValues.blockHash = state.block.chain[ index ].blockHash;
+            initialValues.blockSignature = state.block.chain[ index ].blockSignature;
         }
         return{
-            ...state,
             initialValues
         }
     }, {} )( LedgerBlock );
+*/
 
+export default LedgerBlock;
