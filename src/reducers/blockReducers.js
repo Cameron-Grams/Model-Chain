@@ -13,8 +13,6 @@ const initialState = {
 };
 
 const blockReducer = ( state = initialState, action ) => {
-//    let currentTitle, currentData, currentHash, currentNonce, currentSignature; 
-
 
     const newBlock = ( action ) => {
         return {  
