@@ -1,10 +1,12 @@
 import { createStore, combineReducers } from 'redux'; 
 import { reducer as formReducer } from 'redux-form'; 
 import blockReducer from './reducers/blockReducers'; 
+import minerReducer from './reducers/minerReducer'; 
 
 const reducers = {
     form: formReducer,
-    block: blockReducer
+    block: blockReducer,
+    miner: minerReducer
 };
 
 const reducer = combineReducers( reducers ); 

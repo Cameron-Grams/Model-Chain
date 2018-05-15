@@ -2,7 +2,9 @@ import React from 'react';
 import { connect } from 'react-redux'; 
 import LedgerBlock from './LedgerBlock'; 
 
-const DisplayChain = ( props ) => {
+// update the type of blocks to reflext the dynamic content....
+
+const DisplayFullChain = ( props ) => {
 
     return(
     <div>
@@ -18,4 +20,4 @@ const mapStateToProps = ( state ) => ( {
     block: state.block
 } );
 
-export default connect( mapStateToProps, {} )( DisplayChain ); 
+export default connect( mapStateToProps, {} )( DisplayFullChain ); 

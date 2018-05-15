@@ -5,7 +5,7 @@ import Explanation from '../../components/Explanation/Explanation';
 import IntroText from '../../components/IntroText/IntroText';
 import ShowMiners from './Miners/MinerComponent'; 
 import MinedBlock from './MinedBlock'; 
-import DisplayBlocks from '../DisplayChain/DisplayBlocks';
+import DisplayStaticChain from '../DisplayChain/DisplayStaticChain';
 import './Currency.css';
 
 const Currency = ( props ) => {
@@ -25,7 +25,7 @@ const Currency = ( props ) => {
             <Explanation explanationText={ currencyExplanation } whichExplanation={ "CryptoCurrency" }/>
             <ShowMiners />
             <MinedBlock addToChain={ true }/>
-            <DisplayBlocks />
+            <DisplayStaticChain />
         </Aux>
     )
 }
