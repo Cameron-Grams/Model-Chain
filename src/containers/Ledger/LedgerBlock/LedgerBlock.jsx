@@ -10,6 +10,11 @@ the role of this component will be to take the chain from the redux store and re
 componts that are able to be evaluated against the values from state.
 this will involve having the state ( chain ) values accessible, able to be identified
 and able to be compared to the components rendered and accessible through their own inputs
+
+
+start here:
+
+https://stackoverflow.com/questions/42807901/react-input-element-value-vs-default-value
 */
 
   newInputValue = ( ) => {
