@@ -51,6 +51,7 @@ BlockForm = reduxForm({
 })( BlockForm );
 
 const selector = formValueSelector('singleBlockForm')
+
 BlockForm = connect(
   state => {
     const currentHash = state.block.currentBlock.blockHash; 

@@ -1,58 +1,50 @@
 import React from 'react';
-import { Field, FieldArray, reduxForm } from 'redux-form'
+import { connect } from 'react-redux'; 
 import Carriage from '../../../components/Carriage/Carriage'; 
 
-const renderField = ({ input, label, type, meta: { touched, error } }) => (
-  <div>
-    <label>{label}</label>
-    <div>
-      <input {...input} type={type} placeholder={label} />
-      {touched && error && <span>{error}</span>}
-    </div>
-  </div>
-)
+class LedgerBlock extends React.Component{
 
-const renderData = ( { fields, meta: { error } }) => (
-    <div>
-    {fields.map(( data, index ) => (
-      <div key={ index }>
-        <Field
-          name={ data }
-          type="text"
-          component={ renderField }
-          label={`Block: #${index + 1}`}
-        />
-      </div>
-    ))}
-    {error && <li className="error">{error}</li>}
-    </div>
-)
+  
+/*
+the role of this component will be to take the chain from the redux store and render stateful 
+componts that are able to be evaluated against the values from state.
+this will involve having the state ( chain ) values accessible, able to be identified
+and able to be compared to the components rendered and accessible through their own inputs
+*/
 
-const LedgerBlock = ( props ) => {
-  const { handleSubmit, pristine, reset, submitting } = props
+  newInputValue = ( ) => {
 
-  return(
-    <div>
-    { props.theChain.map( ( block, index ) => (    
-        <Carriage >
-            <h2>Block Title: { block.blockTitle }</h2>
-            <h4>Block Data: { block.blockData }</h4>
-            <p>Block Hash: { block.blockHash }</p>
-            <p>Block Signature: { block.blockSignature }</p>
-            <p>Key: { block.blockIdentifier }</p>
 
-        <form onSubmit={ handleSubmit }>
-            <FieldArray name={`${ block }.blockData`} component={ renderData } />
-        </form>
-        </Carriage>
-    ) ) }
-    </div> )
+  }
+
+
+  render(){   
+    const { handleSubmit } = this.props;
+
+
+
+    return(
+      <div>
+      { this.props.theChain.map( ( block, index ) => (    
+          <Carriage key={ index } >
+          <form onSubmit={ handleSubmit }>
+              <p>Block Title: { block.blockTitle }</p>
+              <p>Data:</p>
+              <input value={ block.blockData } onChange={ () => this.newInputValue() } ></input>
+              <p>Block Hash: { block.blockHash }</p>
+              <p>Block Signature: { block.blockSignature }</p>
+              <p>Key: { index + 1 }</p>
+          </form>
+          </Carriage>
+      ) ) }
+      </div> )
+  };
 };
 
-export default reduxForm( {
-  form: 'blockArrays', 
-})( LedgerBlock ); 
+LedgerBlock = connect( state => state, {} )( LedgerBlock );
 
+export default LedgerBlock;
+/*
 // render forms for data and 
 //  - dynamic calculation of hash that will lead to changes in class
 //        - these changes in class will depend on the comparision of the current values ( in that block and the others derived from it )
@@ -61,3 +53,6 @@ export default reduxForm( {
 // static values for:
 //   - block title 
 //   - block number
+<Field className={ "css-chainBlockInput" } name={ `block_${ index }` } component="input" type="text"/>
+
+*/
