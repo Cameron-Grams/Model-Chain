@@ -1,9 +1,10 @@
 import React from 'react';
-import { connect } from 'react-redux'; 
 import Carriage from '../../../components/Carriage/Carriage'; 
 
 class LedgerBlock extends React.Component{
-
+    state = {
+        masterChain: this.props.chain
+    }
   
 /*
 the role of this component will be to take the chain from the redux store and render stateful 
@@ -15,27 +16,40 @@ and able to be compared to the components rendered and accessible through their 
 start here:
 
 https://stackoverflow.com/questions/42807901/react-input-element-value-vs-default-value
+
+then here:
+https://stackoverflow.com/questions/34321128/render-array-of-inputs-in-react
+
+
 */
+  newInputValue = ( value, index ) => {
+// read in the new value: 
+// need to identify the block by index
+// need to modify that block based on input
 
-  newInputValue = ( ) => {
 
+
+      this.setState( { } ); 
+
+      console.log(      );
 
   }
 
+  readNewBlockEntry = ( e ) => {
+// call the comparison logic
+  }
 
   render(){   
-    const { handleSubmit } = this.props;
-
 
 
     return(
       <div>
       { this.props.theChain.map( ( block, index ) => (    
-          <Carriage key={ index } >
-          <form onSubmit={ handleSubmit }>
+          <Carriage  >
+          <form key={ index } onSubmit={ this.readNewBlockEntry.bind( this, index ) }>
               <p>Block Title: { block.blockTitle }</p>
               <p>Data:</p>
-              <input value={ block.blockData } onChange={ () => this.newInputValue() } ></input>
+              <input value={ block.blockData } onChange={ ( value ) => this.newInputValue( value, index ) } ></input>
               <p>Block Hash: { block.blockHash }</p>
               <p>Block Signature: { block.blockSignature }</p>
               <p>Key: { index + 1 }</p>
@@ -45,8 +59,6 @@ https://stackoverflow.com/questions/42807901/react-input-element-value-vs-defaul
       </div> )
   };
 };
-
-LedgerBlock = connect( state => state, {} )( LedgerBlock );
 
 export default LedgerBlock;
 /*
