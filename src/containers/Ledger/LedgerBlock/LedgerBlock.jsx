@@ -28,27 +28,30 @@ const renderData = ( { fields, meta: { error } }) => (
     </div>
 )
 
-const LedgerBlock = ( { fields, meta: { error, submitFailed } } ) => (
+const LedgerBlock = ( props ) => {
+  const { handleSubmit, pristine, reset, submitting } = props
+
+  return(
     <div>
-    { fields.map( ( block, index ) => (    
+    { props.theChain.map( ( block, index ) => (    
         <Carriage >
             <h2>Block Title: { block.blockTitle }</h2>
             <h4>Block Data: { block.blockData }</h4>
             <p>Block Hash: { block.blockHash }</p>
             <p>Block Signature: { block.blockSignature }</p>
             <p>Key: { block.blockIdentifier }</p>
-            
-        <FieldArray name={`${ block }.blockData`} component={ renderData } />
+
+        <form onSubmit={ handleSubmit }>
+            <FieldArray name={`${ block }.blockData`} component={ renderData } />
+        </form>
         </Carriage>
     ) ) }
     </div> )
-
+};
 
 export default reduxForm( {
   form: 'blockArrays', 
 })( LedgerBlock ); 
-
-
 
 // render forms for data and 
 //  - dynamic calculation of hash that will lead to changes in class

@@ -1,11 +1,19 @@
 import React from 'react'; 
-import { Field, FieldArray, reduxForm } from 'redux-form'
-import LedgerBlock from './LedgerBlock'; 
+import { connect } from 'react-redux'; 
+import { reduxForm } from 'redux-form'
+import LedgerBlock from '../Ledger/LedgerBlock/LedgerBlock'; 
 
-const DisplayFullChain = ( props ) => {
+class DisplayFullChain extends React.Component{
+
+    renderForm = ( props ) => {
+        console.log( "DispFullChn: hit the function with ", props );
+    }
+
+    render(){   
     return(
-        <FieldArray name="dynamicChain" component={ renderBlocks } /> 
+        <LedgerBlock name="dynamicChain" theChain={ this.props.block.chain } onSubmit={ () => this.renderForm() } /> 
     )
+    }
 };
 
 
@@ -14,7 +22,7 @@ const mapStateToProps = ( state ) => ( {
 } );
 
 DisplayFullChain = reduxForm({
-    form: fullChainForm
+    form: "blockArrays"
 })( DisplayFullChain );
 
 export default connect( mapStateToProps, {} )( DisplayFullChain ); 

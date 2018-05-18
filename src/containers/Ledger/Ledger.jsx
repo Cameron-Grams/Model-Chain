@@ -4,7 +4,8 @@ import Header from '../../components/Header/Header';
 import Explanation from '../../components/Explanation/Explanation'; 
 import IntroText from '../../components/IntroText/IntroText'; 
 import Block from '../Block/Block';
-import LedgerBlock from './LedgerBlock/LedgerBlock'; 
+import DisplayFullChain from '../DisplayChain/DisplayFullChain'; 
+// import LedgerBlock from './LedgerBlock/LedgerBlock';
 import './Ledger.css';
 
 const Ledger = ( props ) => {
@@ -24,7 +25,7 @@ const Ledger = ( props ) => {
             <Header currentPage={ "ledgerPage" }/>
             <Explanation explanationText={ ledgerExplanation } whichExplanation={ "Distributed Ledger" }/>
             <Block addToChain={ true }/>
-            <LedgerBlock />
+            <DisplayFullChain />
         </Aux>
     )
 }
