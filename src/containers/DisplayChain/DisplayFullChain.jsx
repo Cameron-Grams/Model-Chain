@@ -7,8 +7,11 @@ class DisplayFullChain extends React.Component{
 
     render(){   
         return(
-            <LedgerBlock name="dynamicChain" theChain={ this.props.block.chain } /> 
-        )
+            { this.state.localChain.map( ( block, index ) => {    
+
+                <LedgerBlock name="dynamicChain" theChain={ this.props.block.chain } /> 
+            }
+        ) }
     }
 };
 
