@@ -1,0 +1,33 @@
+.css-blockForm{
+    width: 100%;
+    color: black;
+}
+
+.css-blockForm > label{
+    margin: 10px;
+}
+
+.css-blockInputDiv{
+
+    margin: 10px;
+}
+
+.css-blockInput{
+    width: 80%;
+}
+
+.css-blockNumber{
+    background-color: slategray;
+    color: black;
+    padding: 10px;
+    margin: 10px 0;
+}
+
+.css-goodBlock{
+    background-color: green;
+}
+
+.css-badBlock{
+    background-color: red;
+}
+

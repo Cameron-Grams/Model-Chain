@@ -4,10 +4,10 @@ import { connect } from 'react-redux';
 // import LedgerBlock from '../Ledger/LedgerBlock/LedgerBlock'; 
 
 class DisplayFullChain extends React.Component{
-    constructor(){
-        super();
+    constructor( props ){
+        super( props );
         this.state = {
-            displayChain: []
+            displayChain: this.props.block.chain
         }
     }
 
@@ -17,7 +17,7 @@ class DisplayFullChain extends React.Component{
         <div>
             <p></p>
 
-            <p>Here is the display chain: { this.state.displayChain }</p>
+            <p>Here is the display chain: { this.state.displayChain[ 0 ].blockTitle }</p>
         </div>
         ) 
     }
