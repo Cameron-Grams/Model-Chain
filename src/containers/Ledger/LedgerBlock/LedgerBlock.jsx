@@ -5,7 +5,6 @@ class LedgerBlock extends React.Component{
     constructor( props ){
         super( props );
         this.state = {
-            localChain: props.theChain,
             currentBlockDataValue: ''
         };
         this.readNewBlockEntry = this.readNewBlockEntry.bind( this ); 
@@ -31,7 +30,7 @@ class LedgerBlock extends React.Component{
             <form key={ index } onSubmit={ this.readNewBlockEntry }>
                 <p>Block Title: { block.blockTitle }</p>
                 <p>Data:</p>
-                <input value={ this.state.localChain[ index ].blockData } onChange={ this.newInputValue } ></input>
+                <input value={ this.state.currentBlockDataValue } onChange={ this.newInputValue } ></input>
                 <p>Block Hash: { block.blockHash }</p>
                 <p>Block Signature: { block.blockSignature }</p>
                 <p>Block: { index + 1 }</p>
@@ -43,15 +42,3 @@ class LedgerBlock extends React.Component{
 };
 
 export default LedgerBlock;
-/*
-// render forms for data and 
-//  - dynamic calculation of hash that will lead to changes in class
-//        - these changes in class will depend on the comparision of the current values ( in that block and the others derived from it )
-//          with the value for the given blocks held in state in the Redux store
-//  > can we do the same for the signature? 
-// static values for:
-//   - block title 
-//   - block number
-<Field className={ "css-chainBlockInput" } name={ `block_${ index }` } component="input" type="text"/>
-
-*/

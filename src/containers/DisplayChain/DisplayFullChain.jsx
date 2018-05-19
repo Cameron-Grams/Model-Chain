@@ -1,17 +1,25 @@
 import React from 'react'; 
 import { connect } from 'react-redux'; 
 // import { reduxForm } from 'redux-form'
-import LedgerBlock from '../Ledger/LedgerBlock/LedgerBlock'; 
+// import LedgerBlock from '../Ledger/LedgerBlock/LedgerBlock'; 
 
 class DisplayFullChain extends React.Component{
+    constructor(){
+        super();
+        this.state = {
+            displayChain: []
+        }
+    }
 
     render(){   
+        console.log( this.props.block.chain )
         return(
-            { this.state.localChain.map( ( block, index ) => {    
+        <div>
+            <p></p>
 
-                <LedgerBlock name="dynamicChain" theChain={ this.props.block.chain } /> 
-            }
-        ) }
+            <p>Here is the display chain: { this.state.displayChain }</p>
+        </div>
+        ) 
     }
 };
 
