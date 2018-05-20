@@ -8,6 +8,7 @@ const Main = ( props ) => {
     return(
       <div className="css-main">
         <Header currentPage={ "mainPage" }/> 
+        <div className={ "css-divCap"}></div>
         <IntroText textClass="css-bodyIntroText" text={ "Describe the purpose of the app" } /> 
         <Loader />
       </div>

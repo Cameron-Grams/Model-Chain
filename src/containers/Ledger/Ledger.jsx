@@ -22,6 +22,7 @@ const Ledger = ( props ) => {
         <Aux>
             
             <Header currentPage={ "ledgerPage" }/>
+            <div className={ "css-divCap"}></div>
             <Explanation explanationText={ ledgerExplanation } whichExplanation={ "Distributed Ledger" }/>
             <GeneratorBlock addToChain={ true }/>
             <DisplayFullChain />

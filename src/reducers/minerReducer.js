@@ -1,6 +1,8 @@
 import * as actionTypes from '../actions/actionTypes'; 
 
 const initialState = {
+    nowMining: false,
+    earnedCoin: null,
     balanceMinerA: 0,
     balanceMinerB: 0,
     balanceMinerC: 0
@@ -14,7 +16,8 @@ const minerReducer = ( state = initialState, action ) => {
         case actionTypes.rewardMiner:{
             return{
                 ...state,
-                [ successfulMiner ]: state[ successfulMiner ] + 10
+                [ successfulMiner ]: state[ successfulMiner ] + 10,
+                earnedCoin: action.miner
             }
         }
 

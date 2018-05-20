@@ -34,7 +34,8 @@ const GeneratorBlock = ( props ) => {
                 < BlockForm formClassName={ "css-blockForm" } onSubmit={ ( values ) => receiveBlock( values ) } /> 
                 <div className={ "css-blockSignatureDiv" } >
                     <p>Nonce: { props.block.currentBlock.blockNonce }   </p>
-                    <p>Block Signature: { props.block.currentBlock.blockSignature }</p>
+                    <p>Block Signature:</p> 
+                    <p>{ props.block.currentBlock.blockSignature }</p>
                 </div>
             </Carriage >
     )

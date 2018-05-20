@@ -8,6 +8,7 @@ const MoreInformation = ( props ) => {
     return(
         <Aux>
             <Header currentPage={ "informationPage" }/>
+            <div className={ "css-divCap" } ></div>
             <IntroText  textClass={ "css-information" } text={ "Page for additional information." } />
         </Aux>
     )

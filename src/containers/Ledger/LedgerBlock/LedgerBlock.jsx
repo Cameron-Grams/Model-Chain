@@ -11,29 +11,37 @@ class LedgerBlock extends React.Component{
         this.newInputValue = this.newInputValue.bind( this );
     }
 
+    componentDidMount( props ){
+        this.setState( { currentBlockDataValue: this.props.block.blockData })
+    }
     newInputValue = ( event ) => {
         this.setState( { currentBlockDataValue: event.target.value } ); 
-        console.log( 'the event traget in question: ', event.target ); 
-        console.log( 'sent new value: ', event.target.value, ' to state' );
     }
 
     readNewBlockEntry = ( event ) => {
-
-        console.log( 'this is the form event: ', event ); 
+        console.log( 'in ledger block, values: ', this.state.currentBlockDataValue );
+        this.props.onEvaluation( this.state.currentBlockDataValue );
         event.preventDefault();
     }
 
     render(){   
+
         return(
         <div>
-            <Carriage key={ index } >
-            <form key={ index } onSubmit={ this.readNewBlockEntry }>
-                <p>Block Title: { block.blockTitle }</p>
+            <Carriage  >
+            <form  onSubmit={ this.readNewBlockEntry }>
+                <p>Block Title: </p>
+                <p>{ this.props.block.blockTitle }</p>
                 <p>Data:</p>
                 <input value={ this.state.currentBlockDataValue } onChange={ this.newInputValue } ></input>
-                <p>Block Hash: { block.blockHash }</p>
-                <p>Block Signature: { block.blockSignature }</p>
-                <p>Block: { index + 1 }</p>
+                <p>Block Hash: </p>
+                <p>{ this.props.block.blockHash }</p>
+                <p>Block Signature: </p>
+                <p>{ this.props.block.blockSignature }</p>
+
+
+
+                <p>Block: { this.props.block.blockNumber }</p>
             </form>
             </Carriage>
         </div> 

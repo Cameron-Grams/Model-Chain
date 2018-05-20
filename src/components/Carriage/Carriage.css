@@ -1,5 +1,6 @@
 .css-carriage{
     width: 100%;
+    margin: 10px 0 10px 0;
     display: flex;
     flex-direction: column;
     justify-content: center;
