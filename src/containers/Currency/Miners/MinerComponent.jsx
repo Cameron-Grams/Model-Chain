@@ -1,5 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux'; 
+import Loader from '../../../components/Loader/Loader'; 
 import Miner from './Miner';
 import './MinerComponent.css'; 
 
@@ -8,8 +9,8 @@ const ShowMiners = ( props ) => {
     const minerArray = [ "A", "B", "C" ];
 
     let minerStatus = props.miner.mining ? 
-        "Miners Mining..." :
-        `Miner ${ minerArray[ props.miner.earnedCoin ] } earned the coins.`;
+        <Loader /> :
+        <h3 className="css-minerStatus" >Miner { minerArray[ props.miner.earnedCoin ] } earned the coins.</h3>;
 
     return(
         <div>
@@ -18,7 +19,7 @@ const ShowMiners = ( props ) => {
                 <Miner minerName={ "B" } balance={ props.miner.balanceMinerB } />
                 <Miner minerName={ "C" } balance={ props.miner.balanceMinerC } />
             </div>
-            <h3 className={ "css-minerStatus" } >{ minerStatus }</h3>
+            { minerStatus }
         </div>
     )
 
