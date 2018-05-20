@@ -3,15 +3,22 @@ import { connect } from 'react-redux';
 import Carriage from '../../components/Carriage/Carriage'; 
 import MinedBlockForm from './MinedBlockForm'; 
 import { setCurrentAction, addNewBlockToChain } from '../../actions/blockActions'; 
-import { rewardMiner } from '../../actions/minerActions'; 
+import { startMining, stopMining, rewardMiner } from '../../actions/minerActions'; 
 import { encryptBlock } from '../../helpers/encryptBlock'; 
 import '../Block/Block.css';
 
 const Block = ( props ) => {
 
+    const obtainSignature = ( title, data ) => {
+        const chainLength = props.block.chain.length;
+        const previousSignature = props.block.chain[ chainLength - 1 ].blockSignature; 
+        return encryptBlock.signature( title, data, previousSignature );
+    }
+
     const mineBlock = ( values ) => {
+        props.startMining(); 
         const { blockTitle, blockData } = values; 
-        const { nonce, signature } = encryptBlock.signature( blockTitle, blockData ); 
+        const { nonce, signature } = obtainSignature( blockTitle, blockData ); 
         const finalBlock = {
             nonce: nonce,
             signature: signature,
@@ -21,7 +28,7 @@ const Block = ( props ) => {
         }     
 
         const minerId = Math.floor( Math.random() * 3 ); 
-
+        props.stopMining();
         props.setCurrentAction( finalBlock ); 
         props.addNewBlockToChain( finalBlock );
         props.rewardMiner( minerId );
@@ -42,5 +49,5 @@ const mapStateToProps = ( state ) => ( {
     block: state.block
 } );
 
-export default connect( mapStateToProps, { setCurrentAction, addNewBlockToChain, rewardMiner } )( Block ); 
+export default connect( mapStateToProps, { startMining, stopMining, setCurrentAction, addNewBlockToChain, rewardMiner } )( Block ); 
 
