@@ -1,5 +1,6 @@
 import React from 'react';
 import Circle from './Circle'; 
+import './Loader.css'; 
 
 
 class Loader extends React.Component{
@@ -46,7 +47,7 @@ class Loader extends React.Component{
 
     render(){   
         return(
-            <div  >
+            <div className="css-loaderHolder" >
                 <svg width="300" height="150" >
                     < Circle cx={ 50 } cy={ this.state.cyA }   />
                     < Circle cx={ 100 } cy={ this.state.cyB }   />

@@ -22,6 +22,7 @@ const Currency = ( props ) => {
     return(
         <Aux>
             <Header currentPage={ "coinPage" }/>
+            <div className={ "css-divCap" } ></div>
             <Explanation explanationText={ currencyExplanation } whichExplanation={ "CryptoCurrency" }/>
             <ShowMiners />
             <MinedBlock addToChain={ true }/>
