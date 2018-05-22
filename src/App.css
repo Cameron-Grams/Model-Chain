@@ -2,3 +2,8 @@ a{
     color: inherit;
     text-decoration: none;
 }
+
+.css-divCap{
+    width: 100%;
+    height: 90px;
+}

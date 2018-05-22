@@ -38,7 +38,8 @@ class BlockForm extends Component {
               <Field className={ "css-blockInput" } name="blockData" component={ "textarea" } type="text"/>
           </div>
         </div>
-        <p>Block Hash: { blockHash }</p>
+        <p>Block Hash: </p>
+        <p>{ blockHash }</p>
         <button type="submit">Mine</button>
 
       </form>
@@ -51,6 +52,7 @@ BlockForm = reduxForm({
 })( BlockForm );
 
 const selector = formValueSelector('singleBlockForm')
+
 BlockForm = connect(
   state => {
     const currentHash = state.block.currentBlock.blockHash; 

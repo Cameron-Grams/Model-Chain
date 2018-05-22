@@ -1,6 +1,6 @@
 const SHA256 = require( 'crypto-js/sha256' );
 
-const calculationDifficulty = 2;
+const calculationDifficulty = 5;
 
 const deriveSignature = ( blockTitle, blockData, previousSignature = '' ) => {
 

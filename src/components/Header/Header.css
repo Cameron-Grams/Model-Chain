@@ -1,4 +1,7 @@
 .css-mainHeader{
+    position: fixed;
+    top: 0px;
+    left: 0px;
     background-color: #222;
     width: 100%;
     display: flex;

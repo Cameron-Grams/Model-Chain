@@ -3,8 +3,8 @@ import Aux from '../../helpers/Aux';
 import Header from '../../components/Header/Header'; 
 import Explanation from '../../components/Explanation/Explanation'; 
 import IntroText from '../../components/IntroText/IntroText'; 
-import Block from '../Block/Block';
-import LedgerBlock from './LedgerBlock/LedgerBlock'; 
+import GeneratorBlock from './GeneratorBlock/GeneratorBlock';
+import DisplayFullChain from '../DisplayChain/DisplayFullChain'; 
 import './Ledger.css';
 
 const Ledger = ( props ) => {
@@ -22,9 +22,10 @@ const Ledger = ( props ) => {
         <Aux>
             
             <Header currentPage={ "ledgerPage" }/>
+            <div className={ "css-divCap"}></div>
             <Explanation explanationText={ ledgerExplanation } whichExplanation={ "Distributed Ledger" }/>
-            <Block addToChain={ true }/>
-            <LedgerBlock />
+            <GeneratorBlock addToChain={ true }/>
+            <DisplayFullChain />
         </Aux>
     )
 }

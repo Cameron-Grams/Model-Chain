@@ -1,6 +1,6 @@
 import React from 'react'; 
 import { connect } from 'react-redux'; 
-import CryptoBlock from './CryptoBlock'; 
+import CryptoBlock from '../Currency/CryptoBlock'; 
 
 const DisplayStaticChain = ( props ) => {
 

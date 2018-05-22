@@ -1,5 +1,12 @@
 import * as actionTypes from '../actions/actionTypes'; 
 
+const genesisBlock = {
+    blockTitle: 'Genesis',
+    blockData: 'Genesis',
+    blockHash: '7b7d41ad02ad1711aa61dc9fc09e4483c546cecf905aaaef3e6149e3f24ec7c7',
+    blockNonce: '266',
+    blockSignature: '00c4ea2949f8a053c99a5480a7900f5da1a8f177e07d7558c78e47065e322009'
+}
 
 const initialState = {
     currentBlock: {
@@ -9,7 +16,7 @@ const initialState = {
         blockNonce: 0,
         blockSignature: ''
     },
-    chain: []
+    chain: [ genesisBlock ]
 };
 
 const blockReducer = ( state = initialState, action ) => {
