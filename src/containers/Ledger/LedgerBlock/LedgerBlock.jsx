@@ -19,8 +19,8 @@ class LedgerBlock extends React.Component{
     }
 
     readNewBlockEntry = ( event ) => {
-        console.log( 'in ledger block, values: ', this.state.currentBlockDataValue );
-        this.props.onEvaluation( this.state.currentBlockDataValue );
+        console.log( 'in ledger block, values: ', this.state.currentBlockDataValue, ' and with block number ', this.props.blockNumber );
+        this.props.onEvaluation( this.state.currentBlockDataValue, this.props.blockNumber );
         event.preventDefault();
     }
 
@@ -30,17 +30,13 @@ class LedgerBlock extends React.Component{
         <div>
             <Carriage  >
             <form  onSubmit={ this.readNewBlockEntry }>
-                <p>Block Title: </p>
-                <p>{ this.props.block.blockTitle }</p>
-                <p>Data:</p>
+                <h4 className={ this.props.blockColorCode } >Block Title: { this.props.block.blockTitle }</h4>
+                <h4>Data:</h4>
                 <input value={ this.state.currentBlockDataValue } onChange={ this.newInputValue } ></input>
                 <p>Block Hash: </p>
                 <p>{ this.props.block.blockHash }</p>
                 <p>Block Signature: </p>
                 <p>{ this.props.block.blockSignature }</p>
-
-
-
                 <p>Block: { this.props.block.blockNumber }</p>
             </form>
             </Carriage>

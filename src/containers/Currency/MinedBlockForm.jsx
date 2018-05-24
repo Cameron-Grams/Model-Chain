@@ -1,27 +1,15 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux'; 
-import { Field, reduxForm, formValueSelector } from 'redux-form';
+import { Field, reduxForm, formValueSelector, reset } from 'redux-form';
 import { encryptBlock } from '../../helpers/encryptBlock'; 
 
 class BlockForm extends Component {
   render() {
     const { handleSubmit, blockHash } = this.props;
 
-    let blockColorCode;
-
-    if( this.props.currentHash ){
-        if( this.props.currentHash === blockHash ){
-          blockColorCode = "css-goodBlock";
-        } else if ( this.props.currentHash !== blockHash ){
-          blockColorCode = "css-badBlock";
-        }
-    } else {
-     blockColorCode = ''; 
-    }
-
     return (
       <form className={ this.props.formClassName } onSubmit={ handleSubmit }>
-        <div className={ `css-blockNumber ${ blockColorCode }` } >
+        <div className={ "css-blockNumber" } >
           <label>Block Number: Example </label>
         </div>
 
@@ -46,8 +34,13 @@ class BlockForm extends Component {
   }
 }
 
+const afterSubmit = ( result, dispatch ) => 
+    dispatch( reset( 'singleBlockForm' ));
+
+
 BlockForm = reduxForm({
-  form: 'singleBlockForm'
+  form: 'singleBlockForm',
+  onSubmitSuccess: afterSubmit
 })( BlockForm );
 
 const selector = formValueSelector('singleBlockForm')
