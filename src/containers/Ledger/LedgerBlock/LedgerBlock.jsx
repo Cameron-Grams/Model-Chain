@@ -30,7 +30,9 @@ class LedgerBlock extends React.Component{
         <div>
             <Carriage  >
             <form  onSubmit={ this.readNewBlockEntry }>
-                <h4 className={ this.props.blockColorCode } >Block Title: { this.props.block.blockTitle }</h4>
+              <div className={ this.props.blockColorCode } >
+                <h4 >Block Title: { this.props.block.blockTitle }</h4>
+              </div>
                 <h4>Data:</h4>
                 <input value={ this.state.currentBlockDataValue } onChange={ this.newInputValue } ></input>
                 <p>Block Hash: </p>

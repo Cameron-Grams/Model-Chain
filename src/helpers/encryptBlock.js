@@ -3,7 +3,6 @@ const SHA256 = require( 'crypto-js/sha256' );
 const deriveSignature = ( blockTitle, blockData, previousSignature = '' ) => {
  //   const calculationDifficulty = Math.floor( Math.random() * 6 );
     const calculationDifficulty = 4;
-    console.log( 'working with difficulty: ', calculationDifficulty );
     let nonce = 0, signature = "99999"; 
     const calculateHash = ( ) => {
         return SHA256( previousSignature + blockData + blockTitle + nonce ).toString(); 
