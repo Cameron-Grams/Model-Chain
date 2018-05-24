@@ -17,6 +17,10 @@
     justify-content: center;
 }
 
+.css-headerDivision > h3{
+    margin: 20px;
+}
+
 .css-title{
     flex: 5 1 auto;
 }
