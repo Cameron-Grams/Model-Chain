@@ -7,7 +7,7 @@ const CryptoBlock = ( props ) => {
 
     return(
         <Carriage >
-            <h2>Block Title: { props.block.blockTitle }</h2>
+            <h4>Block Title: { props.block.blockTitle }</h4>
             <h4>Block Data: { props.block.blockData }</h4>
             <p>Block Hash: { props.block.blockHash }</p>
             <p>Block Signature: { props.block.blockSignature }</p>

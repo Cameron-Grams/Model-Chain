@@ -4,12 +4,13 @@ import CryptoBlock from '../Currency/CryptoBlock';
 
 const DisplayStaticChain = ( props ) => {
 
+    const displayedChain = props.block.chain.map( ( block, id ) => ( 
+            <CryptoBlock key={ id.toString() } block={ block } blockIdentifier={ id.toString() } />
+        ) ).reverse(); 
+        
     return(
     <div>
-        { props.block.chain.map( ( block, id ) => ( 
-            <CryptoBlock key={ id.toString() } block={ block } blockIdentifier={ id.toString() } />
-            ) 
-        ) }
+        { displayedChain }
     </div> 
     )
 };
