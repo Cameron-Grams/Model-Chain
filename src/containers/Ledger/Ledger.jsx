@@ -1,4 +1,5 @@
 import React from 'react'; 
+import { connect } from 'react-redux'; 
 import Aux from '../../helpers/Aux';
 import Header from '../../components/Header/Header'; 
 import Explanation from '../../components/Explanation/Explanation'; 
@@ -30,4 +31,8 @@ const Ledger = ( props ) => {
     )
 }
 
-export default Ledger;
+const mapStateToProps = ( state ) => ( {
+    block: state.block
+})
+
+export default connect( mapStateToProps, {} )( Ledger );

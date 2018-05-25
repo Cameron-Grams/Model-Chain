@@ -12,13 +12,8 @@ class DisplayFullChain extends React.Component{
     }
 
     evaluateBlockInput = ( values, blockNumber ) => {
-        console.log( 'disp full chain with values: ', values, ' and block number ', blockNumber ); 
-
         const adjustChain = this.state.currentChain;
-
         adjustChain[ blockNumber ].blockData = values;
-        console.log( 'in display chain with adjust chain: ', adjustChain );
-
         this.setState( { currentChain: adjustChain } );
     }
 
@@ -47,7 +42,7 @@ class DisplayFullChain extends React.Component{
 
         let blockObjectArray = this.state.currentChain;
 
-        const displayedChain = blockObjectArray.map( ( block, id ) =>  (
+        let displayedChain = blockObjectArray.map( ( block, id ) =>  (
             <LedgerBlock key={ block.blockNumber } blockNumber={ block.blockNumber } 
                 blockColorCode={ block.blockColorCode }
                 blockKey={ block.id } block={ block } 
@@ -56,10 +51,9 @@ class DisplayFullChain extends React.Component{
         ).reverse();
 
         return(
-
-        <div>
-            { displayedChain }
-        </div>
+            <div>
+                { displayedChain }
+            </div>
         ) 
     }
 };
