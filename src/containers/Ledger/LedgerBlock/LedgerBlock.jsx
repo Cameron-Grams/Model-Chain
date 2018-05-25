@@ -27,14 +27,14 @@ class LedgerBlock extends React.Component{
     render(){   
 
         return(
-        <div>
+        <div key={ this.props.blockNumber } >
             <Carriage  >
             <form  onSubmit={ this.readNewBlockEntry }>
               <div className={ this.props.blockColorCode } >
                 <h4 >Block Title: { this.props.block.blockTitle }</h4>
               </div>
                 <h4>Data:</h4>
-                <input value={ this.state.currentBlockDataValue } onChange={ this.newInputValue } ></input>
+                <input value={ this.props.block.blockData } onChange={ this.newInputValue } ></input>
                 <p>Block Hash: </p>
                 <p>{ this.props.block.blockHash }</p>
                 <p>Block Signature: </p>

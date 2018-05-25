@@ -6,8 +6,8 @@ class DisplayFullChain extends React.Component{
     constructor( props ){
         super( props );
         this.state = {
-            displayChain: this.props.block.chain,
-            currentChain: this.props.block.chain
+            mainChain: this.props.block.chain,
+            currentChain: []
         }
     }
 
@@ -17,9 +17,9 @@ class DisplayFullChain extends React.Component{
         this.setState( { currentChain: adjustChain } );
     }
 
-    prepareBlocks = () => {
+    prepareBlocks = ( givenChain ) => {
             let baseId = 0;
-            const initialChain = ( this.state.displayChain.map( ( block, index ) => {
+            const initialChain = ( givenChain.map( ( block, index ) => {
 
                 const colorCode = block.blockHash === this.props.block.chain[ index ].blockHash 
                     ? "css-goodBlock"
@@ -35,24 +35,22 @@ class DisplayFullChain extends React.Component{
         };
 
     componentDidMount(){
-        this.prepareBlocks();
+        this.prepareBlocks( this.props.handedChain );
     }
 
     render(){   
 
-        let blockObjectArray = this.state.currentChain;
-
-        let displayedChain = blockObjectArray.map( ( block, id ) =>  (
-            <LedgerBlock key={ block.blockNumber } blockNumber={ block.blockNumber } 
-                blockColorCode={ block.blockColorCode }
-                blockKey={ block.id } block={ block } 
-                onEvaluation={ ( values, blockNumber ) => this.evaluateBlockInput( values, blockNumber ) } />
-            ) 
+        let displayedChain = ( displayChain ) => displayChain.map( ( block, id ) =>  (
+                <LedgerBlock key={ id } blockNumber={ block.blockNumber } 
+                    blockColorCode={ block.blockColorCode }
+                    blockKey={ block.id } block={ block } 
+                    onEvaluation={ ( values, blockNumber ) => this.evaluateBlockInput( values, blockNumber ) } />
+                ) 
         ).reverse();
 
         return(
             <div>
-                { displayedChain }
+                { displayedChain( this.state.currentChain ) }
             </div>
         ) 
     }
