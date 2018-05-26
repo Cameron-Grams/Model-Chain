@@ -7,50 +7,44 @@ class DisplayFullChain extends React.Component{
         super( props );
         this.state = {
             mainChain: this.props.block.chain,
-            currentChain: []
         }
     }
 
     evaluateBlockInput = ( values, blockNumber ) => {
-        const adjustChain = this.state.currentChain;
-        adjustChain[ blockNumber ].blockData = values;
-        this.setState( { currentChain: adjustChain } );
+        console.log( "in display full chain: values: ", values, blockNumber );
     }
 
-    prepareBlocks = ( givenChain ) => {
-            let baseId = 0;
-            const initialChain = ( givenChain.map( ( block, index ) => {
+    /*
+    create a state condition to reflect that the chain has or has not been altered
+        - this condition will have to be reset to false once the chain has been remined or added to
+        - true will force an assessment of the displayed chain with new values from the altered block
+        - having this condition true will lead to rendering the altered chain, false will lead to the handedChain
+        
 
-                const colorCode = block.blockHash === this.props.block.chain[ index ].blockHash 
-                    ? "css-goodBlock"
-                    : "css-badBlock"; 
+        THis is the functionality that may work best as a component of the Redux state...
 
-                return{
-                    ...block,
-                    blockNumber: baseId++,
-                    blockColorCode: colorCode
-                }
-            } ) ) 
-            this.setState( { currentChain: initialChain } );
-        };
 
-    componentDidMount(){
-        this.prepareBlocks( this.props.handedChain );
-    }
+        const displayedChain = hasBeenAltered ? this.props.block.alteredChain: this.props.HandedChain; 
+            - here the alteredChain would come from the global state
+            - calculations can be performed there
+    */
 
-    render(){   
 
-        let displayedChain = ( displayChain ) => displayChain.map( ( block, id ) =>  (
-                <LedgerBlock key={ id } blockNumber={ block.blockNumber } 
-                    blockColorCode={ block.blockColorCode }
-                    blockKey={ block.id } block={ block } 
-                    onEvaluation={ ( values, blockNumber ) => this.evaluateBlockInput( values, blockNumber ) } />
-                ) 
-        ).reverse();
+
+   render(){   
+
+        let displayedChain = true ? this.props.handedChain: null;
 
         return(
             <div>
-                { displayedChain( this.state.currentChain ) }
+                
+                { displayedChain.map( ( block, id ) =>  (
+                        <LedgerBlock key={ id } blockNumber={ id.toString() } 
+                            blockKey={ block.id } block={ block } 
+                            onEvaluation={ ( values, blockNumber ) => this.evaluateBlockInput( values, blockNumber ) } />
+                        ) 
+                ).reverse()
+                }
             </div>
         ) 
     }

@@ -14,6 +14,7 @@ const Ledger = ( props ) => {
         <div>
             <p>The explanation of how a block provides enhanced security</p>
             <p>Something more about the process...</p>
+            <p>Click To Close</p>
         </div>
     )
 
@@ -21,7 +22,6 @@ const Ledger = ( props ) => {
 
     return(
         <Aux>
-            
             <Header currentPage={ "ledgerPage" }/>
             <div className={ "css-divCap"}></div>
             <Explanation explanationText={ ledgerExplanation } whichExplanation={ "Distributed Ledger" }/>

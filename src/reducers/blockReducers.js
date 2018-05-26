@@ -5,7 +5,8 @@ const genesisBlock = {
     blockData: 'Genesis',
     blockHash: '7b7d41ad02ad1711aa61dc9fc09e4483c546cecf905aaaef3e6149e3f24ec7c7',
     blockNonce: '266',
-    blockSignature: '00c4ea2949f8a053c99a5480a7900f5da1a8f177e07d7558c78e47065e322009'
+    blockSignature: '00c4ea2949f8a053c99a5480a7900f5da1a8f177e07d7558c78e47065e322009',
+    blockColorCode: 'css-goodBlock'
 }
 
 const initialState = {
@@ -14,7 +15,8 @@ const initialState = {
         blockData: '',
         blockHash: null,
         blockNonce: 0,
-        blockSignature: ''
+        blockSignature: '',
+        blockColorCode: 'css-goodBlock'
     },
     chain: [ genesisBlock ]
 };
@@ -27,7 +29,8 @@ const blockReducer = ( state = initialState, action ) => {
         blockData: action.data.blockData,
         blockHash: action.data.blockHash,
         blockNonce: action.data.nonce,
-        blockSignature: action.data.signature
+        blockSignature: action.data.signature,
+        blockColorCode: 'css-goodBlock'
         };
     };
 

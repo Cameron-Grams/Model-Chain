@@ -1,7 +1,7 @@
 import React from 'react'; 
 import { connect } from 'react-redux'; 
 import Carriage from '../../../components/Carriage/Carriage'; 
-import BlockForm from '../../Block/BlockForm'; 
+import LedgerBlockForm from '../LedgerBlockForm'; 
 import { setCurrentAction, addNewBlockToChain } from '../../../actions/blockActions'; 
 import { encryptBlock } from '../../../helpers/encryptBlock'; 
 import './GeneratorBlock.css';
@@ -31,7 +31,7 @@ const GeneratorBlock = ( props ) => {
 
     return(
             <Carriage > 
-                < BlockForm formClassName={ "css-blockForm" } onSubmit={ ( values ) => receiveBlock( values ) } /> 
+                < LedgerBlockForm formClassName={ "css-blockForm" } onSubmit={ ( values ) => receiveBlock( values ) } /> 
                 <div className={ "css-blockSignatureDiv" } >
                     <p>Nonce: { props.block.currentBlock.blockNonce }   </p>
                     <p>Block Signature:</p> 

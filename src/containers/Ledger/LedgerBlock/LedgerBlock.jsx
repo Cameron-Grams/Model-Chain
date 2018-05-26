@@ -5,23 +5,27 @@ class LedgerBlock extends React.Component{
     constructor( props ){
         super( props );
         this.state = {
-            currentBlockDataValue: ''
+            currentBlockDataValue: this.props.block.blockData,
+            blockNumber: this.props.blockNumber
         };
         this.readNewBlockEntry = this.readNewBlockEntry.bind( this ); 
         this.newInputValue = this.newInputValue.bind( this );
     }
 
     componentDidMount( props ){
-        this.setState( { currentBlockDataValue: this.props.block.blockData })
+        this.setState( { 
+            currentBlockDataValue: this.props.block.blockData,
+            blockNumber: this.props.blockNumber
+        })
     }
     newInputValue = ( event ) => {
         this.setState( { currentBlockDataValue: event.target.value } ); 
     }
 
     readNewBlockEntry = ( event ) => {
-        console.log( 'in ledger block, values: ', this.state.currentBlockDataValue, ' and with block number ', this.props.blockNumber );
-        this.props.onEvaluation( this.state.currentBlockDataValue, this.props.blockNumber );
+        this.props.onEvaluation( this.state.currentBlockDataValue, this.state.blockNumber );
         event.preventDefault();
+        return false;
     }
 
     render(){   
@@ -30,16 +34,16 @@ class LedgerBlock extends React.Component{
         <div key={ this.props.blockNumber } >
             <Carriage  >
             <form  onSubmit={ this.readNewBlockEntry }>
-              <div className={ this.props.blockColorCode } >
-                <h4 >Block Title: { this.props.block.blockTitle }</h4>
+              <div className={ `css-ledgerBlock ${ this.props.block.blockColorCode }` } >
+                <label >Block Title: { this.props.block.blockTitle }</label>
               </div>
                 <h4>Data:</h4>
-                <input value={ this.props.block.blockData } onChange={ this.newInputValue } ></input>
+                <input type="input" value={ this.state.currentBlockDataValue } onChange={ this.newInputValue } ></input>
                 <p>Block Hash: </p>
                 <p>{ this.props.block.blockHash }</p>
                 <p>Block Signature: </p>
                 <p>{ this.props.block.blockSignature }</p>
-                <p>Block: { this.props.block.blockNumber }</p>
+                <p>Block: { this.props.blockNumber }</p>
             </form>
             </Carriage>
         </div> 
