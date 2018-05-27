@@ -1,5 +1,7 @@
 import React from 'react'; 
 import { connect } from 'react-redux'; 
+import { sendAlteredChain } from '../../actions/blockActions';
+import { altered } from '../../helpers/alteredChain'; 
 import LedgerBlock from '../Ledger/LedgerBlock/LedgerBlock'; 
 
 class DisplayFullChain extends React.Component{
@@ -10,8 +12,14 @@ class DisplayFullChain extends React.Component{
         }
     }
 
-    evaluateBlockInput = ( values, blockNumber ) => {
+    evaluateBlockInput = ( event, values, blockNumber ) => {
         console.log( "in display full chain: values: ", values, blockNumber );
+        let newChain = this.state.mainChain;
+        newChain[ blockNumber ].blockData = values;
+        altered.reassess( newChain ); 
+        this.props.sendAlteredChain( newChain );
+        event.preventDefault();
+        return false;
     }
 
     /*
@@ -24,8 +32,7 @@ class DisplayFullChain extends React.Component{
         THis is the functionality that may work best as a component of the Redux state...
 
 
-        const displayedChain = hasBeenAltered ? this.props.block.alteredChain: this.props.HandedChain; 
-            - here the alteredChain would come from the global state
+                    - here the alteredChain would come from the global state
             - calculations can be performed there
     */
 
@@ -33,7 +40,8 @@ class DisplayFullChain extends React.Component{
 
    render(){   
 
-        let displayedChain = true ? this.props.handedChain: null;
+        let displayedChain = this.props.block.hasBeenAltered ? this.props.block.alteredChain: this.props.block.chain; 
+
 
         return(
             <div>
@@ -55,5 +63,5 @@ const mapStateToProps = ( state ) => ( {
     block: state.block
 } );
 
-export default connect( mapStateToProps, {} )( DisplayFullChain ); 
+export default connect( mapStateToProps, {  sendAlteredChain } )( DisplayFullChain ); 
 

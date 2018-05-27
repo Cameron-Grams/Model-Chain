@@ -11,3 +11,13 @@ export function addNewBlockToChain ( newBlock ){
         data: newBlock
     } );
 };
+
+export function sendAlteredChain( newChain ){
+
+    return( {
+        type: 'SEND_ALTERED_CHAIN',
+        data: newChain
+    })
+};
+
+

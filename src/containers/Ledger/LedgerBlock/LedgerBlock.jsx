@@ -23,7 +23,7 @@ class LedgerBlock extends React.Component{
     }
 
     readNewBlockEntry = ( event ) => {
-        this.props.onEvaluation( this.state.currentBlockDataValue, this.state.blockNumber );
+        this.props.onEvaluation( event, this.state.currentBlockDataValue, this.state.blockNumber );
         event.preventDefault();
         return false;
     }

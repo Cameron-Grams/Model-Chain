@@ -18,10 +18,14 @@ const initialState = {
         blockSignature: '',
         blockColorCode: 'css-goodBlock'
     },
-    chain: [ genesisBlock ]
+    chain: [ genesisBlock ],
+    hasBeenAltered: false,
+    alteredChain: []
 };
 
 const blockReducer = ( state = initialState, action ) => {
+
+    console.log( 'in block reducer with action: ', action ); 
 
     const newBlock = ( action ) => {
         return {  
@@ -53,6 +57,16 @@ const blockReducer = ( state = initialState, action ) => {
                 ...state,
                chain: updatedChain
             };
+        }
+
+        case actionTypes.sendAlteredChain:{
+            console.log( 'block reducer, hit the send altered...sendAlteredChain')
+
+            return{
+                ...state,
+                hasBeenAltered: !state.hasBeenAltered,
+                alteredChain: action.data
+            }
         }
 
         default:{

@@ -1,5 +1,4 @@
 import React from 'react'; 
-import { connect } from 'react-redux'; 
 import Aux from '../../helpers/Aux';
 import Header from '../../components/Header/Header'; 
 import Explanation from '../../components/Explanation/Explanation'; 
@@ -26,13 +25,9 @@ const Ledger = ( props ) => {
             <div className={ "css-divCap"}></div>
             <Explanation explanationText={ ledgerExplanation } whichExplanation={ "Distributed Ledger" }/>
             <GeneratorBlock addToChain={ true }/>
-            <DisplayFullChain   handedChain={ props.block.chain }  />
+            <DisplayFullChain />
         </Aux>
     )
 }
 
-const mapStateToProps = ( state ) => ( {
-    block: state.block
-})
-
-export default connect( mapStateToProps, {} )( Ledger );
+export default Ledger;
