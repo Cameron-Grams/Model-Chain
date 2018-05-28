@@ -1,7 +1,7 @@
 import React from 'react'; 
 import { connect } from 'react-redux'; 
 import { sendAlteredChain } from '../../actions/blockActions';
-import { altered } from '../../helpers/alteredChain'; 
+import { recalculateChain } from '../../helpers/alteredChain'; 
 import LedgerBlock from '../Ledger/LedgerBlock/LedgerBlock'; 
 
 class DisplayFullChain extends React.Component{
@@ -12,14 +12,13 @@ class DisplayFullChain extends React.Component{
         }
     }
 
-    evaluateBlockInput = ( event, values, blockNumber ) => {
+    evaluateBlockInput = ( values, blockNumber ) => {
         console.log( "in display full chain: values: ", values, blockNumber );
         let newChain = this.state.mainChain;
+        console.log( 'in display chain, new chain: ', newChain, ' with block number ', blockNumber );
         newChain[ blockNumber ].blockData = values;
-        altered.reassess( newChain ); 
+        recalculateChain( newChain ); 
         this.props.sendAlteredChain( newChain );
-        event.preventDefault();
-        return false;
     }
 
     /*

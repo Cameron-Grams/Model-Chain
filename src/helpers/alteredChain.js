@@ -1,4 +1,4 @@
-const recalculateChain = ( array ) => {
+export const recalculateChain = ( array ) => {
     console.log( 'in altered chain module wit array: ', array );
 }
 
@@ -13,10 +13,3 @@ in the new chains
 the class of the blocks will need to be evaluated based on the comparison of old and new signature and hash 
 
 */
-
-const altered = {
-    reassess: ( array ) => recalculateChain( array )
-};
-
-
-module.exports = altered; 
