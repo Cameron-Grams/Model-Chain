@@ -16,7 +16,7 @@ const initialState = {
         blockHash: null,
         blockNonce: 0,
         blockSignature: '',
-        blockColorCode: 'css-goodBlock'
+        blockColorCode: 'css-badBlock'
     },
     chain: [ genesisBlock ],
     hasBeenAltered: false,

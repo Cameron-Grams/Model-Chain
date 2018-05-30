@@ -1,15 +1,48 @@
-export const recalculateChain = ( array ) => {
-    console.log( 'in altered chain module wit array: ', array );
+const { encryptBlock } = require( './encryptBlock' );
+
+
+export const recalculateChain = ( inputChain, blockNumber, originalChain ) => {
+
+    let newChain = inputChain;
+
+    const chainLength = newChain.length; 
+
+    if ( blockNumber === 0 ){
+        // previous values established for calculation
+        newChain[ 0 ] = {
+            ...newChain[ 0 ],
+            blockHash: "Bad Hash",
+            blockSignature: "Bad Signature",
+            nonce: 222
+        }
+    }
+
+    for ( let i = 1; i < chainLength - 1; i++ ){
+        let currentBlock = newChain[ i ];        
+        currentBlock.blockHash = encryptBlock.returnValue( `${ currentBlock.blockTitle }${ currentBlock.blockData }` );
+        const { nonce, signature } = encryptBlock.signature( currentBlock.blockTitle, currentBlock.blockData, newChain[ i - 1 ].blockSignature ); 
+        currentBlock.nonce = nonce;
+        currentBlock.blockSignature = signature; 
+    }
+
+
+    console.log( 'in altered chain module wit array: ', newChain );
+    console.log( 'in altered chain with array 2: ', originalChain ); 
+
+    return newChain;
 }
 
-
-
 /*
-the first essential task is to take in the array of block objects and return an array of block objects with the new values
-
-new values will require reassessing the signatures and hashes and then capturing those new values as properties of the objects
-in the new chains
-
-the class of the blocks will need to be evaluated based on the comparison of old and new signature and hash 
+    const receiveBlock = ( values ) => {
+        const { blockTitle, blockData } = values; 
+        const { nonce, signature } = encryptBlock.signature( blockTitle, blockData, previousBlock ); 
+        const finalBlock = {
+            nonce: nonce,
+            signature: signature,
+            blockTitle: blockTitle,
+            blockData: blockData,
+            blockHash: encryptBlock.returnValue( `${ blockTitle }${ blockData }` )
+        }     
 
 */
+

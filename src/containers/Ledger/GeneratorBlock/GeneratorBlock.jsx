@@ -8,12 +8,12 @@ import './GeneratorBlock.css';
 
 const GeneratorBlock = ( props ) => {
 
-    const endOfChain = props.block.chain.length - 1;
-    const previousBlock = props.block.chain[ endOfChain ];
+    let blockChainPosition = 0;
 
     const receiveBlock = ( values ) => {
+        const previousBlockSignature = props.block.chain[ blockChainPosition ].blockSignature;
         const { blockTitle, blockData } = values; 
-        const { nonce, signature } = encryptBlock.signature( blockTitle, blockData, previousBlock ); 
+        const { nonce, signature } = encryptBlock.signature( blockTitle, blockData, previousBlockSignature ); 
         const finalBlock = {
             nonce: nonce,
             signature: signature,
@@ -21,12 +21,11 @@ const GeneratorBlock = ( props ) => {
             blockData: blockData,
             blockHash: encryptBlock.returnValue( `${ blockTitle }${ blockData }` )
         }     
-
         props.setCurrentAction( finalBlock ); 
-
         if ( props.addToChain ){
             props.addNewBlockToChain( finalBlock );
         }
+        blockChainPosition += 1;
     };
 
     return(

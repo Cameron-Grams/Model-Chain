@@ -13,28 +13,11 @@ class DisplayFullChain extends React.Component{
     }
 
     evaluateBlockInput = ( values, blockNumber ) => {
-        console.log( "in display full chain: values: ", values, blockNumber );
-        let newChain = this.state.mainChain;
-        console.log( 'in display chain, new chain: ', newChain, ' with block number ', blockNumber );
+        let newChain = JSON.parse( JSON.stringify( [ ...this.state.mainChain ] ) );
         newChain[ blockNumber ].blockData = values;
-        recalculateChain( newChain ); 
+        newChain = recalculateChain( newChain, blockNumber, this.props.block.chain ); 
         this.props.sendAlteredChain( newChain );
     }
-
-    /*
-    create a state condition to reflect that the chain has or has not been altered
-        - this condition will have to be reset to false once the chain has been remined or added to
-        - true will force an assessment of the displayed chain with new values from the altered block
-        - having this condition true will lead to rendering the altered chain, false will lead to the handedChain
-        
-
-        THis is the functionality that may work best as a component of the Redux state...
-
-
-                    - here the alteredChain would come from the global state
-            - calculations can be performed there
-    */
-
 
 
    render(){   
