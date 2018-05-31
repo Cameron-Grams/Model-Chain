@@ -2,6 +2,7 @@ const { encryptBlock } = require( './encryptBlock' );
 
 
 export const recalculateChain = ( inputChain, blockNumber, originalChain ) => {
+    let startBlock = 1;
 
     let newChain = inputChain;
 
@@ -9,19 +10,20 @@ export const recalculateChain = ( inputChain, blockNumber, originalChain ) => {
 
     if ( blockNumber === 0 ){
         // previous values established for calculation
+        /*
         newChain[ 0 ] = {
             ...newChain[ 0 ],
             blockHash: "Bad Hash",
             blockSignature: "Bad Signature",
             nonce: 222
         }
+        */
+       startBlock = 0;
+       // add in an additonal block so that the Genesis block has a prior to read.. 
     }
 
-    console.log( 'Genesis block: ', newChain[ 0] ); 
 
-    for ( let i = 1; i < chainLength; i++ ){
-
-
+    for ( let i = startBlock; i < chainLength; i++ ){
 
         let currentBlock = newChain[ i ];        
         currentBlock.blockHash = encryptBlock.returnValue( `${ currentBlock.blockTitle }${ currentBlock.blockData }` );
