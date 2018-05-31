@@ -14,8 +14,10 @@ class DisplayFullChain extends React.Component{
 
     evaluateBlockInput = ( values, blockNumber ) => {
         let newChain = JSON.parse( JSON.stringify( [ ...this.state.mainChain ] ) );
-
+        let newChain2 = [ ...this.state.mainChain ]; 
 //        let newChain = this.props.block.chain; 
+        console.log( 'in disp new chain: ', newChain ); 
+        console.log( 'in disp new chain 2: ', newChain2 ); 
 
         newChain[ blockNumber ].blockData = values;
         newChain = recalculateChain( newChain, blockNumber, this.props.block.chain ); 
@@ -26,7 +28,6 @@ class DisplayFullChain extends React.Component{
    render(){   
 
         let displayedChain = this.props.block.hasBeenAltered ? this.props.block.alteredChain: this.props.block.chain; 
-
 
         return(
             <div>
