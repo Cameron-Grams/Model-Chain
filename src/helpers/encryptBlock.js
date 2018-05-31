@@ -11,6 +11,7 @@ const deriveSignature = ( blockTitle, blockData, previousSignature = '' ) => {
         nonce++;
         signature = calculateHash(); 
     }
+    console.log( 'in encrypt block with signature: ', signature ); 
     return { signature, nonce }; 
 }
 

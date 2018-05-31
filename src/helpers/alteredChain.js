@@ -17,32 +17,31 @@ export const recalculateChain = ( inputChain, blockNumber, originalChain ) => {
         }
     }
 
-    for ( let i = 1; i < chainLength - 1; i++ ){
+    console.log( 'Genesis block: ', newChain[ 0] ); 
+
+    for ( let i = 1; i < chainLength; i++ ){
+
+
+
         let currentBlock = newChain[ i ];        
         currentBlock.blockHash = encryptBlock.returnValue( `${ currentBlock.blockTitle }${ currentBlock.blockData }` );
         const { nonce, signature } = encryptBlock.signature( currentBlock.blockTitle, currentBlock.blockData, newChain[ i - 1 ].blockSignature ); 
+        console.log( 'Position: ', i ); 
+        console.log( 'in altered chain with previous signature: ', newChain[ i - 1 ].blockSignature );
+        console.log( 'in original chain with previous signature: ', originalChain[ i - 1 ].blockSignature );
+        console.log( '   ...   ' );
         currentBlock.nonce = nonce;
         currentBlock.blockSignature = signature; 
     }
 
-
-    console.log( 'in altered chain module wit array: ', newChain );
-    console.log( 'in altered chain with array 2: ', originalChain ); 
+    for ( let j = 0; j < chainLength; j++ ){
+        const evaluatedBlock = newChain[ j ];
+        const originalBlock = originalChain[ j ]; 
+        if( evaluatedBlock.blockSignature !== originalBlock.blockSignature ){
+            newChain[ j ].blockColorCode = "css-badBlock"; 
+        }
+    }
 
     return newChain;
 }
-
-/*
-    const receiveBlock = ( values ) => {
-        const { blockTitle, blockData } = values; 
-        const { nonce, signature } = encryptBlock.signature( blockTitle, blockData, previousBlock ); 
-        const finalBlock = {
-            nonce: nonce,
-            signature: signature,
-            blockTitle: blockTitle,
-            blockData: blockData,
-            blockHash: encryptBlock.returnValue( `${ blockTitle }${ blockData }` )
-        }     
-
-*/
 
