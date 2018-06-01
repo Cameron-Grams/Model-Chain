@@ -6,18 +6,12 @@ import IntroText from '../../components/IntroText/IntroText';
 import ShowMiners from './Miners/MinerComponent'; 
 import MinedBlock from './MinedBlock'; 
 import DisplayStaticChain from '../DisplayChain/DisplayStaticChain';
+import { currencyBlockText } from './currencyBlockText'; 
 import './Currency.css';
 
 const Currency = ( props ) => {
 
-    const currencyText = (
-        <div>
-            <p>The explanation of how mining relates to validating a block in a distributed system</p>
-            <p>Something more about the process...</p>
-        </div>
-    )
-
-    const currencyExplanation = <IntroText  textClass={ "css-currency" } text={ currencyText } />
+    const currencyExplanation = <IntroText  textClass={ "css-currency" } text={ currencyBlockText } />
 
     return(
         <Aux>

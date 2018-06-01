@@ -14,7 +14,7 @@ const SingleBlockDisplay = ( props ) => {
     < React.Fragment >
         <Header currentPage={ "blockPage" } />
         <div className={ "css-divCap"}></div>
-        <Explanation explanationText={ blockExplanation } whichExplanation={ "Block of the Blockchain" }/>
+        <Explanation explanationText={ blockExplanation } whichExplanation={ "Block on the Blockchain" }/>
         <Block  />
     </ React.Fragment >
     )
