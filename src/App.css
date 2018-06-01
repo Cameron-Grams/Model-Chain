@@ -3,7 +3,25 @@ a{
     text-decoration: none;
 }
 
+.css-embededLink{
+    color: blue;
+}
+
+.css-embededLink:hover{
+    text-decoration: underline;
+}
 .css-divCap{
     width: 100%;
     height: 90px;
 }
+
+.css-explanationText{
+    width: 80%;
+    text-align: center;
+    line-height: 1.5em;
+    padding: 15px;
+}
+
+
+
+
