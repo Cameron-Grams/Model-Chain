@@ -1,4 +1,5 @@
 import * as actionTypes from '../actions/actionTypes'; 
+import { recalculateChain, normalizeChain } from '../helpers/alteredChain'; 
 
 const genesisBlock = {
     blockTitle: 'Genesis',
@@ -50,19 +51,27 @@ const blockReducer = ( state = initialState, action ) => {
             let updatedChain = state.chain;
             let targetData = newBlock( action );
             updatedChain.push( targetData );
+            const goodChain = normalizeChain( updatedChain );
 
             return {
                 ...state,
-               chain: updatedChain
+               hasBeenAltered: false,
+               chain: goodChain
             };
         }
 
         case actionTypes.sendAlteredChain:{
 
+//            action.data // values from the form
+            const blockNumber = action.blockNumber; // blockNumber altered 
+            const newChain = [ ...state.chain ]; 
+
+            const updatedChain = recalculateChain( newChain, blockNumber ); 
+
             return{
                 ...state,
-                hasBeenAltered: !state.hasBeenAltered,
-                alteredChain: action.data
+                hasBeenAltered: true,
+                alteredChain: updatedChain
             }
         }
 

@@ -12,11 +12,12 @@ export function addNewBlockToChain ( newBlock ){
     } );
 };
 
-export function sendAlteredChain( newChain ){
+export function sendAlteredChain( values, blockNumber ){
 
     return( {
         type: 'SEND_ALTERED_CHAIN',
-        data: newChain
+        data: values,
+        blockNumber: blockNumber
     })
 };
 

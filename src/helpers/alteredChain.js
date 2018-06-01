@@ -1,41 +1,30 @@
 const { encryptBlock } = require( './encryptBlock' );
 
 
-export const recalculateChain = ( inputChain, blockNumber, originalChain ) => {
-    let startBlock = 1;
-
+export const recalculateChain = ( inputChain, blockNumber ) => {
+    const initialBlockSignature = '00c4ea2949f8a053c99a5480a7900f5da1a8f177e07d7558c78e47065e322009';
+    let previousSignature; 
+    let startBlock = blockNumber;
     let newChain = inputChain;
-
     const chainLength = newChain.length; 
-
-    if ( blockNumber === 0 ){
-        // previous values established for calculation
-        /*
-        newChain[ 0 ] = {
-            ...newChain[ 0 ],
-            blockHash: "Bad Hash",
-            blockSignature: "Bad Signature",
-            nonce: 222
-        }
-        */
-       startBlock = 0;
-       // add in an additonal block so that the Genesis block has a prior to read.. 
-    }
-
+ 
+    console.log( 'in altered chain with block number: ', blockNumber ); 
 
     for ( let i = startBlock; i < chainLength; i++ ){
-
+        if ( i === "0" ){
+            previousSignature = initialBlockSignature;
+        } else {
+            previousSignature = newChain[ i - 1 ].blockSignature;
+        }
         let currentBlock = newChain[ i ];        
         currentBlock.blockHash = encryptBlock.returnValue( `${ currentBlock.blockTitle }${ currentBlock.blockData }` );
-        const { nonce, signature } = encryptBlock.signature( currentBlock.blockTitle, currentBlock.blockData, newChain[ i - 1 ].blockSignature ); 
-        console.log( 'Position: ', i ); 
-        console.log( 'in altered chain with previous signature: ', newChain[ i - 1 ].blockSignature );
-        console.log( 'in original chain with previous signature: ', originalChain[ i - 1 ].blockSignature );
-        console.log( '   ...   ' );
+        const { nonce, signature } = encryptBlock.signature( currentBlock.blockTitle, currentBlock.blockData, previousSignature ); 
         currentBlock.nonce = nonce;
         currentBlock.blockSignature = signature; 
+        currentBlock.blockColorCode = 'css-badBlock'; 
     }
 
+    /*
     for ( let j = 0; j < chainLength; j++ ){
         const evaluatedBlock = newChain[ j ];
         const originalBlock = originalChain[ j ]; 
@@ -43,7 +32,21 @@ export const recalculateChain = ( inputChain, blockNumber, originalChain ) => {
             newChain[ j ].blockColorCode = "css-badBlock"; 
         }
     }
+    */
 
     return newChain;
 }
+
+export const normalizeChain = ( oldChain ) => {
+
+    let normalizedChain = [ ...oldChain ]; 
+
+    for ( let i = 0; i < oldChain.length; i++ ){
+        oldChain[ i ].blockColorCode = 'css-goodBlock'; 
+    }
+
+    return normalizedChain;
+}
+
+
 

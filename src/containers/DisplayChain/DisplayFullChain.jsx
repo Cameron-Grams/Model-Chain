@@ -1,7 +1,6 @@
 import React from 'react'; 
 import { connect } from 'react-redux'; 
 import { sendAlteredChain } from '../../actions/blockActions';
-import { recalculateChain } from '../../helpers/alteredChain'; 
 import LedgerBlock from '../Ledger/LedgerBlock/LedgerBlock'; 
 
 class DisplayFullChain extends React.Component{
@@ -13,15 +12,13 @@ class DisplayFullChain extends React.Component{
     }
 
     evaluateBlockInput = ( values, blockNumber ) => {
-        let newChain = JSON.parse( JSON.stringify( [ ...this.state.mainChain ] ) );
-        let newChain2 = [ ...this.state.mainChain ]; 
+//        let newChain = JSON.parse( JSON.stringify( [ ...this.state.mainChain ] ) );
+//        let newChain2 = [ ...this.state.mainChain ]; 
 //        let newChain = this.props.block.chain; 
-        console.log( 'in disp new chain: ', newChain ); 
-        console.log( 'in disp new chain 2: ', newChain2 ); 
 
-        newChain[ blockNumber ].blockData = values;
-        newChain = recalculateChain( newChain, blockNumber, this.props.block.chain ); 
-        this.props.sendAlteredChain( newChain );
+//        newChain[ blockNumber ].blockData = values;
+//        newChain = recalculateChain( newChain, blockNumber, this.props.block.chain ); 
+        this.props.sendAlteredChain( values, blockNumber );
     }
 
 
