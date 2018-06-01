@@ -24,7 +24,6 @@ class LedgerBlock extends React.Component{
 
     readNewBlockEntry = ( event, ) => {
         event.preventDefault();
-        console.log( 'in ledger block, with block number: ', this.state.blockNumber ); 
         this.props.onEvaluation( this.state.currentBlockDataValue, this.state.blockNumber );
         return false;
     }

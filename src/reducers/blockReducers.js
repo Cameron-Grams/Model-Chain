@@ -61,12 +61,11 @@ const blockReducer = ( state = initialState, action ) => {
         }
 
         case actionTypes.sendAlteredChain:{
-
-//            action.data // values from the form
             const blockNumber = action.blockNumber; // blockNumber altered 
-            const newChain = [ ...state.chain ]; 
-
-            const updatedChain = recalculateChain( newChain, blockNumber ); 
+//            const newChain = [ ...state.chain ]; 
+            const newChain = JSON.parse( JSON.stringify( state.chain ) );
+            newChain[ blockNumber ].blockData = action.data; 
+            const updatedChain = recalculateChain( newChain, blockNumber, state.chain ); 
 
             return{
                 ...state,
