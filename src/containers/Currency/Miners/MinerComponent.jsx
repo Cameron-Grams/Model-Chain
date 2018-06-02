@@ -24,8 +24,6 @@ const ShowMiners = ( props ) => {
             { minerStatus }
         </div>
     )
-
-
 }
 
 const mapStateToProps = ( state ) => ( {

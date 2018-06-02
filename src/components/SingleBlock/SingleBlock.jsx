@@ -24,7 +24,6 @@ class SingleBlock extends React.Component {
         } );
     }
   
-    //using redux this is where we bring in the dispatched function from props...
     handleSubmit( event ) {
         const totalText = this.state.blockName + this.state.blockData;
         const signature = encryptBlock.returnBlock( totalText );

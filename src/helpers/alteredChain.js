@@ -25,15 +25,12 @@ export const recalculateChain = ( inputChain, blockNumber, originalChain ) => {
         currentBlock.nonce = nonce;
         currentBlock.blockSignature = signature; 
         newChainSignatures.push( signature ); 
-//        currentBlock.blockColorCode = 'css-badBlock'; 
         previousSignature = signature;
     }
 
     for ( let j = 0; j < chainLength; j++ ){
         const evaluatedBlock = newChain[ j ];
         const originalBlock = comparisonChain[ j ]; 
-//        console.log( 'in alt chain, altered  sig: ',  evaluatedBlock.blockSignature )
-//        console.log( 'in alt chain, original sig: ',  originalBlock.blockSignature )
         if( evaluatedBlock.blockSignature !== originalBlock.blockSignature ){
             newChain[ j ].blockColorCode = "css-badBlock"; 
         }

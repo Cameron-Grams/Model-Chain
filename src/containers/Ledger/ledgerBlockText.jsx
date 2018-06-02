@@ -33,17 +33,6 @@ export const ledgerBlockText = (
                     blockchain.  This threat is eliminated ( or minimized ) through the use of the 
                     decentralized block generation that produces cryptocurrency.
                 </p>
-
-
-
-
-
-
-
-
-
-
-
            <h3 className="css-explanationFormat">Click anywhere to close</h3>
         </div>
     )

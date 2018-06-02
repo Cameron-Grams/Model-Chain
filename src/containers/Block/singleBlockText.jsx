@@ -5,7 +5,7 @@ export const singleBlockText = (
             <h1>Building a Single Block</h1>
                 <p>
                     Each block is represented by a cryptographic signature derived from the data contained in the 
-                    block ( in this case the data and titel fields ).  The information in data and title is processed 
+                    block ( in this case the data and title fields ).  The information in data and title is processed 
                     initially to produce a hash value.  A hash value is a single unique value derived 
                     mathematically from the input values. This derived hash value can act as a way to reference 
                     the inputs without actually revealing the data in the inputs.

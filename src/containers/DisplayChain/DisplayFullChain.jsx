@@ -12,12 +12,6 @@ class DisplayFullChain extends React.Component{
     }
 
     evaluateBlockInput = ( values, blockNumber ) => {
-//        let newChain = JSON.parse( JSON.stringify( [ ...this.state.mainChain ] ) );
-//        let newChain2 = [ ...this.state.mainChain ]; 
-//        let newChain = this.props.block.chain; 
-
-//        newChain[ blockNumber ].blockData = values;
-//        newChain = recalculateChain( newChain, blockNumber, this.props.block.chain ); 
         this.props.sendAlteredChain( values, blockNumber );
     }
 

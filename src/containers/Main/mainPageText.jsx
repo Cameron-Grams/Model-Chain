@@ -13,7 +13,7 @@ export const mainText = (
             </p>
             <p>
                 This site was built to provide an explanation by moving between the tabs in order: Block, 
-                Ledger, and Coin. Just click on the text labeled "Explanation of..." at the top of the page to start.  
+                Ledger, and Coins. Just click on the text labeled <span className="css-explanationMention" > "Explanation of..."</span> at the top of the page to start.  
                 The information tab of this site also has additional references that may be helpful after 
                 this introduction. 
             </p>
