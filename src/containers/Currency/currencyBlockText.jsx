@@ -4,17 +4,19 @@ export const currencyBlockText = (
         <div className="css-explanationText" >
             <h1>Cryptocurrencies and Coins: Incentives</h1>
                 <p>
-                    Having a single source of growth for a blockchain decreases it's security as well as creates 
-                    the centralization that the blockchain was developed to overcome. The system of a blockchain 
-                    ledger becomes a true innovation once the growth and visibility of the process becomes decentralized.  
-                    If there are multiple locations that are capable of producing a block signature and growing the chain 
-                    the chain itself develops greater integrity. Performing this signature development and growing the chain 
-                    requires computing power and electricity.  The "Miners" who do this work require an incentive, this is 
-                    where cryptocurrencies reinforce the system.
+                    The previous description of a blockchain's Ledger features concluded by illustrating how 
+                    controling a blockchain's growth, the validation of the blocks of data, controls the integrity 
+                    of the data contained in the blockchain.  Modern public blockchains address this feature by 
+                    making the growth and validation of the blockchain dependent on a race between those who would 
+                    grow the blockchain, the "Miners".  This is done by making a copy of the blockchain available 
+                    to everyone on the network and then establishing a consensus on the identity of the blockchain 
+                    by all recognizing the most recent block. The effort required to produce the most recent block, 
+                    validating the data in that block, is incentivized by providing the Coins or Cryptocurrency from 
+                    that given blockchain. 
                 </p>
 
                 <p>
-                    Cryptocurrencies, the Coins, are the rewards that the blockchain records for doing the work of 
+                    Cryptocurrencies or Coins, are the rewards that the blockchain records for doing the work of 
                     actually generating a block; performing the process of deriving the block signature based on the 
                     input data, previous signature and producing a unique nonce.
                 </p>
