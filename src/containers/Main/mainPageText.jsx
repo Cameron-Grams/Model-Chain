@@ -21,7 +21,8 @@ export const mainText = (
             <p>
                 For a good overview of what blockchains are this film by the 
                 <a className="css-embededLink" href="https://www.youtube.com/watch?v=4sm5LNqL5j0&feature=youtube"> United Kingdom Government Office for Science </a> 
-                provides a clear starting point. 
+                provides a clear starting point. Additionally <a className="css-embededLink" 
+                href="http://graphics.reuters.com/TECHNOLOGY-BLOCKCHAIN/010070P11GN/index.html"> Reuters </a>produced a very clear graphic that will supplement this hands on site. 
             </p>
         
         </div>
